@@ -20,21 +20,24 @@ header {
   width: 60px;
   height: 60px;
   border-radius: 50%;
+  border: 2px solid #ff77ff;
 }
 
 .terminal-title {
   font-size: 28px;
-  color: #00ff00;
+  color: #ff77ff;
   margin: 0;
   flex: 1;
   padding-left: 20px;
   white-space: nowrap;
   overflow: hidden;
+  text-shadow: 0 0 5px #ff77ff, 0 0 10px #ff77ff;
 }
 
 .cursor {
   display: inline-block;
   animation: blink 1s step-end infinite;
+  color: #ff77ff;
 }
 
 @keyframes blink {
@@ -57,15 +60,17 @@ section {
   max-width: 900px;
   margin: 20px auto;
   background: #111;
-  border-left: 3px solid #00ff00;
+  border-left: 3px solid #ff77ff;
   border-radius: 8px;
+  box-shadow: 0 0 10px #ff77ff40;
 }
 
 h2 {
-  color: #00ff00;
-  border-bottom: 1px solid #00ff00;
+  color: #ff77ff;
+  border-bottom: 1px solid #ff77ff80;
   padding-bottom: 5px;
   margin-bottom: 15px;
+  text-shadow: 0 0 5px #ff77ff;
 }
 
 .project-grid {
@@ -77,18 +82,20 @@ h2 {
 .project {
   background: #222;
   padding: 15px;
-  border: 1px solid #00ff00;
+  border: 1px solid #ff77ff90;
   border-radius: 8px;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project:hover {
   transform: scale(1.02);
+  box-shadow: 0 0 10px #ff77ff80;
 }
 
 .credential {
-  color: #00ff00;
+  color: #ff77ff;
   text-decoration: none;
+  font-weight: bold;
 }
 
 .credential:hover {
