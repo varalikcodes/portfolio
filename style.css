@@ -1,43 +1,62 @@
+/* Theme Variables */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --accent-color: #d0006f;
+  --secondary-bg: #f7f7f7;
+  --shadow-color: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='dark'] {
+  --bg-color: #000000;
+  --text-color: #ffffff;
+  --accent-color: #ff77ff;
+  --secondary-bg: #111111;
+  --shadow-color: #ff77ff40;
+}
+
+/* Base Styles */
 body {
   font-family: 'Space Mono', monospace;
   margin: 0;
   padding: 0;
-  background: #000;
-  color: #fff;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Header Section */
 header {
-  position: relative;
   padding: 20px 40px;
-  background-color: #000;
+  background-color: var(--bg-color);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid #ccc;
 }
 
 .profile-pic img {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  border: 2px solid #ff77ff;
+  border: 2px solid var(--accent-color);
 }
 
 .terminal-title {
   font-size: 28px;
-  color: #ff77ff;
+  color: var(--accent-color);
   margin: 0;
   flex: 1;
   padding-left: 20px;
   white-space: nowrap;
   overflow: hidden;
-  text-shadow: 0 0 5px #ff77ff, 0 0 10px #ff77ff;
+  text-shadow: 0 0 5px var(--accent-color), 0 0 10px var(--accent-color);
 }
 
 .cursor {
   display: inline-block;
   animation: blink 1s step-end infinite;
-  color: #ff77ff;
+  color: var(--accent-color);
 }
 
 @keyframes blink {
@@ -49,30 +68,66 @@ header {
   }
 }
 
+/* Social Links + Theme Toggle */
+.social-links {
+  display: flex;
+  align-items: center;
+}
+
 .social-links img {
   height: 20px;
   margin-left: 12px;
+  filter: invert(0%);
+}
+
+[data-theme='dark'] .social-links img {
   filter: invert(100%);
 }
 
+#theme-toggle {
+  background: none;
+  border: none;
+  font-size: 20px;
+  margin-left: 15px;
+  cursor: pointer;
+  color: var(--accent-color);
+}
+
+/* Sections */
 section {
+  background-color: var(--secondary-bg);
   padding: 30px 50px;
   max-width: 900px;
   margin: 20px auto;
-  background: #111;
-  border-left: 3px solid #ff77ff;
+  border-left: 3px solid var(--accent-color);
   border-radius: 8px;
-  box-shadow: 0 0 10px #ff77ff40;
+  box-shadow: 0 0 10px var(--shadow-color);
 }
 
 h2 {
-  color: #ff77ff;
-  border-bottom: 1px solid #ff77ff80;
+  color: var(--accent-color);
+  border-bottom: 1px solid var(--accent-color);
   padding-bottom: 5px;
   margin-bottom: 15px;
-  text-shadow: 0 0 5px #ff77ff;
+  text-shadow: 0 0 5px var(--accent-color);
 }
 
+/* Experience / Jobs */
+.job, .project {
+  margin-bottom: 20px;
+}
+
+.credential {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.credential:hover {
+  text-decoration: underline;
+}
+
+/* Projects */
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -80,35 +135,22 @@ h2 {
 }
 
 .project {
-  background: #222;
+  background-color: var(--bg-color);
+  border: 1px solid var(--accent-color);
   padding: 15px;
-  border: 1px solid #ff77ff90;
   border-radius: 8px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project:hover {
   transform: scale(1.02);
-  box-shadow: 0 0 10px #ff77ff80;
-}
-
-.credential {
-  color: #ff77ff;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.github-icon {
-  height: 16px;
-  vertical-align: middle;
-  margin-right: 6px;
-  filter: invert(100%);
+  box-shadow: 0 0 10px var(--accent-color);
 }
 
 .project a {
   display: inline-flex;
   align-items: center;
-  color: #ff77ff;
+  color: var(--accent-color);
   margin-top: 10px;
   text-decoration: none;
   font-weight: bold;
@@ -118,6 +160,13 @@ h2 {
   text-decoration: underline;
 }
 
-.credential:hover {
-  text-decoration: underline;
+.github-icon {
+  height: 16px;
+  vertical-align: middle;
+  margin-right: 6px;
+  filter: invert(0%);
+}
+
+[data-theme='dark'] .github-icon {
+  filter: invert(100%);
 }
