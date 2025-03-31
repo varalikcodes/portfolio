@@ -8,7 +8,9 @@
 }
 
 [data-theme='dark'] body {
-  background-image: url('background_dark.jpg');
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  background-image: url('background-dark.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
