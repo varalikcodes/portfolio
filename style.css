@@ -7,12 +7,12 @@
   --shadow-color: rgba(0, 0, 0, 0.05);
 }
 
-[data-theme='dark'] {
-  --bg-color: #000000;
-  --text-color: #ffffff;
-  --accent-color: #ff77ff;
-  --secondary-bg: #111111;
-  --shadow-color: #ff77ff40;
+[data-theme='dark'] body {
+  background-image: url('background-dark.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
 /* Base Styles */
