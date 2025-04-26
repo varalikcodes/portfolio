@@ -190,3 +190,58 @@ h2 {
 [data-theme='dark'] .github-icon {
   filter: invert(100%);
 }
+.certification-item {
+  background-color: var(--secondary-bg);
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+
+.certification-item:hover {
+  transform: translateY(-5px);
+}
+
+.certification-item ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+.credential-button {
+  display: inline-block;
+  margin-top: 12px;
+  background: #a067a5;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.credential-button:hover {
+  background: #8a5490;
+}
+
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 12px;
+  margin-left: 10px;
+  text-decoration: none;
+  color: #a067a5;
+  font-weight: 600;
+}
+
+.github-link:hover {
+  color: #8a5490;
+}
+
+.github-icon {
+  width: 16px;
+  height: 16px;
+}
+
