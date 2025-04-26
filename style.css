@@ -250,36 +250,45 @@ h2 {
   width: 16px;
   height: 16px;
 }
-.about-flex {
+
+.about-wrapper {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 40px;
 }
 
-.about-image img {
+.about-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  max-width: 1000px;
+  padding: 20px;
+}
+
+.about-photo img {
   width: 220px;
   height: 220px;
   border-radius: 50%;
   border: 3px solid var(--accent-color);
   object-fit: cover;
+  box-shadow: 0 0 12px var(--accent-color);
+  background-color: var(--bg-color);
 }
 
-.about-text {
+.about-box {
   flex: 1;
-  min-width: 280px;
-  text-align: left;
+  margin-top: 20px;
 }
 
-/* Mobile Friendly Stack */
 @media (max-width: 768px) {
-  .about-flex {
+  .about-container {
     flex-direction: column;
+    align-items: center;
     text-align: center;
   }
 
-  .about-text {
-    text-align: center;
+  .about-box {
+    margin-top: 10px;
   }
 }
+
