@@ -240,22 +240,35 @@ h2 {
 .github-link {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  margin-top: 12px;
-  margin-left: 10px;
-  text-decoration: none;
-  color: #a067a5;
+  gap: 6px;
+  margin-left: 12px;
   font-weight: 600;
+  color: var(--accent-color);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s;
 }
 
 .github-link:hover {
-  color: #8a5490;
+  text-decoration: underline;
+  color: #b0005a; /* slightly deeper pink in light mode */
+}
+
+[data-theme='dark'] .github-link:hover {
+  color: #ff99ff; /* softer glow hover for dark mode */
 }
 
 .github-icon {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
+  filter: invert(0%);
+  transition: filter 0.3s;
 }
+
+[data-theme='dark'] .github-icon {
+  filter: invert(100%);
+}
+
 
 .about-wrapper {
   display: flex;
