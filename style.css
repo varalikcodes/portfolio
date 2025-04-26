@@ -64,6 +64,12 @@ header {
   border: 2px solid var(--accent-color);
 }
 
+.profile-pic {
+  display: flex;
+  align-items: center;
+}
+
+
 .terminal-title {
   font-size: 28px;
   color: var(--accent-color);
