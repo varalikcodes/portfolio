@@ -272,6 +272,7 @@ h2 {
   text-align: left;
 }
 
+/* Mobile Friendly Stack */
 @media (max-width: 768px) {
   .about-flex {
     flex-direction: column;
@@ -282,4 +283,3 @@ h2 {
     text-align: center;
   }
 }
-
