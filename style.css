@@ -263,8 +263,8 @@ h2 {
   bottom: 20px;
   right: 20px;
   z-index: 1000;
-  background-color: #333;
-  color: #fff;
+  background-color: var(--accent-color);
+  color: white;
   padding: 12px 20px;
   border-radius: 10px;
   text-decoration: none;
