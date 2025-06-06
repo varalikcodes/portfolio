@@ -269,6 +269,17 @@ h2 {
   filter: invert(100%);
 }
 
+.website-icon {
+  width: 36px;
+  height: 36px;
+  filter: invert(0%);
+  transition: filter 0.3s;
+}
+
+[data-theme='dark'] .website-icon {
+  filter: invert(100%);
+}
+
 
 .about-wrapper {
   display: flex;
