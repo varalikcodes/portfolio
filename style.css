@@ -274,9 +274,12 @@ h2 {
 }
 
 .fixed-credential-button:hover {
-  background-color: #555;
+  background-color: #b0005a; /* for light mode */
 }
 
+[data-theme='dark'] .fixed-credential-button:hover {
+  background-color: #e066e6; /* for dark mode */
+}
 .github-icon {
   width: 18px;
   height: 18px;
