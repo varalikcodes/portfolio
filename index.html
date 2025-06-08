@@ -188,6 +188,19 @@
 
 
 <script src="script.js"></script>
+  <script>
+  const button = document.querySelector('.fixed-credential-button');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+      button.style.opacity = '1';
+      button.style.pointerEvents = 'auto';
+    } else {
+      button.style.opacity = '0';
+      button.style.pointerEvents = 'none';
+    }
+  });
+</script>
   
 </body>
 </html>
