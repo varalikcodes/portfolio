@@ -6,6 +6,278 @@
   <title>Graphic Design Showcase | Varalika</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+  <style>
+    /* Using your website's exact color scheme and styling */
+    :root {
+      --bg-color: rgba(255, 255, 255, 0.7);
+      --text-color: #000000;
+      --accent-color: #d0006f;
+      --secondary-bg: rgba(247, 247, 247, 0.7);
+      --shadow-color: rgba(0, 0, 0, 0.05);
+    }
+
+    [data-theme='dark'] {
+      --bg-color: rgba(0, 0, 0, 0.7);
+      --text-color: #ffffff;
+      --accent-color: #ff77ff;
+      --secondary-bg: rgba(17, 17, 17, 0.6);
+      --shadow-color: #ff77ff40;
+    }
+
+    body {
+      font-family: 'Space Mono', monospace;
+      margin: 0;
+      padding: 0;
+      color: var(--text-color);
+      background-color: var(--bg-color);
+      background-image: url('background_light.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      transition: background-color 0.3s ease, color 0.3s ease, background-image 0.3s ease;
+      min-height: 100vh;
+    }
+
+    [data-theme='dark'] body {
+      background-image: url('background_dark.jpg');
+    }
+
+    /* Dark overlay for readability */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: -1;
+    }
+
+    .case-studies-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .case-study-card {
+      background-color: var(--bg-color);
+      border: 1px solid var(--accent-color);
+      border-radius: 8px;
+      padding: 1.5rem;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 0 10px var(--shadow-color);
+    }
+
+    .case-study-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 10px var(--accent-color);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .company-name {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--accent-color);
+      margin: 0;
+      text-shadow: 0 0 5px var(--accent-color);
+    }
+
+    .expand-icon {
+      font-size: 1.5rem;
+      transition: transform 0.3s ease;
+      color: var(--accent-color);
+    }
+
+    .case-study-card.expanded .expand-icon {
+      transform: rotate(180deg);
+    }
+
+    .card-preview {
+      color: var(--text-color);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .card-details {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out;
+      margin-top: 0;
+    }
+
+    .case-study-card.expanded .card-details {
+      max-height: 1000px;
+      margin-top: 1.5rem;
+    }
+
+    .research-section, .design-solutions {
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      color: var(--accent-color);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-shadow: 0 0 5px var(--accent-color);
+    }
+
+    .detail-item {
+      margin-bottom: 0.8rem;
+      line-height: 1.6;
+      color: var(--text-color);
+    }
+
+    .detail-item strong {
+      color: var(--accent-color);
+      font-weight: bold;
+    }
+
+    .design-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .design-grid img {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 2px solid var(--accent-color);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 10px var(--shadow-color);
+    }
+
+    .design-grid img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 15px var(--accent-color);
+    }
+
+    .click-hint {
+      text-align: center;
+      color: var(--text-color);
+      font-style: italic;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    /* Header matching your website style */
+    header {
+      padding: 20px 40px;
+      background-color: var(--bg-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #ccc;
+      backdrop-filter: blur(5px);
+    }
+
+    .terminal-title {
+      font-size: 28px;
+      color: var(--accent-color);
+      margin: 0;
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-shadow: 0 0 5px var(--accent-color), 0 0 10px var(--accent-color);
+    }
+
+    .cursor {
+      display: inline-block;
+      animation: blink 1s step-end infinite;
+      color: var(--accent-color);
+    }
+
+    @keyframes blink {
+      from, to { opacity: 0; }
+      50% { opacity: 1; }
+    }
+
+    .social-links {
+      display: flex;
+      align-items: center;
+    }
+
+    .credential-button {
+      display: inline-block;
+      background-color: var(--accent-color);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .credential-button:hover {
+      background-color: #b0005a;
+    }
+
+    [data-theme='dark'] .credential-button:hover {
+      background-color: #e066e6;
+    }
+
+    /* Content section matching your website */
+    .content-section {
+      background-color: var(--secondary-bg);
+      padding: 30px 50px;
+      max-width: 900px;
+      margin: 20px auto;
+      border-left: 3px solid var(--accent-color);
+      border-radius: 8px;
+      box-shadow: 0 0 10px var(--shadow-color);
+      backdrop-filter: blur(6px);
+    }
+
+    .content-section h2 {
+      color: var(--accent-color);
+      border-bottom: 1px solid var(--accent-color);
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+      text-shadow: 0 0 5px var(--accent-color);
+    }
+
+    .content-section p {
+      color: var(--text-color);
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      .content-section {
+        padding: 20px 30px;
+        margin: 15px auto;
+      }
+      
+      .case-studies-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
+      header {
+        padding: 15px 20px;
+      }
+      
+      .terminal-title {
+        font-size: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -19,59 +291,131 @@
     <h2>Client Case Studies</h2>
     <p>Design work completed during my internship at BestLogic Staffing, showcasing user research and targeted design solutions</p>
     
-    <div class="case-study">
-      <h3>RNNation.com - Healthcare Job Board</h3>
-      <div class="research-section">
-        <h4>🔍 User Research & Insights</h4>
-        <p><strong>Target audience:</strong> Registered nurses and healthcare professionals seeking employment</p>
-        <p><strong>Key findings:</strong> Users value credibility, clear job details, and quick access to opportunities. Healthcare professionals are busy and need efficient, trustworthy platforms.</p>
-        <p><strong>Design challenge:</strong> Create materials that convey professionalism and reliability while standing out in the competitive healthcare recruitment space</p>
+    <div class="case-studies-grid">
+      <!-- RNNation Card -->
+      <div class="case-study-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <h3 class="company-name">RNNation.com</h3>
+          <span class="expand-icon">⌄</span>
+        </div>
+        <div class="card-preview">
+          <strong>Healthcare Job Board</strong><br>
+          Designing for registered nurses and healthcare professionals seeking trusted employment opportunities.
+        </div>
+        <div class="card-details">
+          <div class="research-section">
+            <h4 class="section-title">🔍 User Research & Insights</h4>
+            <div class="detail-item">
+              <strong>Target audience:</strong> Registered nurses and healthcare professionals seeking employment
+            </div>
+            <div class="detail-item">
+              <strong>Key findings:</strong> Users value credibility, clear job details, and quick access to opportunities. Healthcare professionals are busy and need efficient, trustworthy platforms.
+            </div>
+            <div class="detail-item">
+              <strong>Design challenge:</strong> Create materials that convey professionalism and reliability while standing out in the competitive healthcare recruitment space
+            </div>
+          </div>
+          <div class="design-solutions">
+            <h4 class="section-title">🎨 Design Solutions</h4>
+            <div class="design-grid">
+              <img src="graphics/rn-flyer.png" alt="RNNation Flyer" onerror="this.src='https://via.placeholder.com/120x100/fce4ec/d0006f?text=Flyer'" />
+              <img src="graphics/rn-banner.png" alt="RNNation Banner" onerror="this.src='https://via.placeholder.com/120x100/fce4ec/d0006f?text=Banner'" />
+              <img src="graphics/rn-insta.png" alt="RNNation Instagram Post" onerror="this.src='https://via.placeholder.com/120x100/fce4ec/d0006f?text=Social'" />
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="design-solutions">
-        <h4>🎨 Design Solutions</h4>
-        <div class="design-grid">
-          <img src="graphics/rn-flyer.png" alt="RNNation Flyer" />
-          <img src="graphics/rn-banner.png" alt="RNNation Banner" />
-          <img src="graphics/rn-insta.png" alt="RNNation Instagram Post" />
+
+      <!-- PassionateSoccerCoach Card -->
+      <div class="case-study-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <h3 class="company-name">PassionateSoccerCoach.com</h3>
+          <span class="expand-icon">⌄</span>
+        </div>
+        <div class="card-preview">
+          <strong>Soccer Coaching Resources</strong><br>
+          Balancing energy and education for coaches, parents, and players at all levels.
+        </div>
+        <div class="card-details">
+          <div class="research-section">
+            <h4 class="section-title">🔍 User Research & Insights</h4>
+            <div class="detail-item">
+              <strong>Target audience:</strong> Soccer coaches, parents, and players at all levels seeking training resources
+            </div>
+            <div class="detail-item">
+              <strong>Key findings:</strong> Community-focused audience that values practical, actionable content. Mix of experienced and beginner coaches looking for inspiration and tools.
+            </div>
+            <div class="detail-item">
+              <strong>Design challenge:</strong> Balance energy and enthusiasm with educational credibility; appeal to both serious coaches and passionate parents
+            </div>
+          </div>
+          <div class="design-solutions">
+            <h4 class="section-title">🎨 Design Solutions</h4>
+            <div class="design-grid">
+              <img src="graphics/soccer-flyer.png" alt="PassionateSoccerCoach Flyer" onerror="this.src='https://via.placeholder.com/120x100/fce4ec/d0006f?text=Flyer'" />
+              <img src="graphics/soccer-banner.png" alt="PassionateSoccerCoach Banner" onerror="this.src='https://via.placeholder.com/120x100/fce4ec/d0006f?text=Banner'" />
+              <img src="graphics/soccer-insta.png" alt="PassionateSoccerCoach Instagram Post" onerror="this.src='https://via.placeholder.com/120x100/fce4ec/d0006f?text=Social'" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ZeusCareers Card -->
+      <div class="case-study-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <h3 class="company-name">ZeusCareers.com</h3>
+          <span class="expand-icon">⌄</span>
+        </div>
+        <div class="card-preview">
+          <strong>Global Job Platform</strong><br>
+          Creating versatile designs for diverse international job seekers across multiple industries.
+        </div>
+        <div class="card-details">
+          <div class="research-section">
+            <h4 class="section-title">🔍 User Research & Insights</h4>
+            <div class="detail-item">
+              <strong>Target audience:</strong> Job seekers across multiple industries and geographic locations
+            </div>
+            <div class="detail-item">
+              <strong>Key findings:</strong> Diverse, international audience requiring universal design language. Users from finance, tech, retail, and more with varying cultural contexts.
+            </div>
+            <div class="detail-item">
+              <strong>Design challenge:</strong> Create versatile designs that work across cultures while maintaining brand consistency and professional appeal
+            </div>
+          </div>
+          <div class="design-solutions">
+            <h4 class="section-title">🎨 Design Solutions</h4>
+            <div class="design-grid">
+              <img src="graphics/zeus-flyer.png" alt="ZeusCareers Flyer" onerror="this.src='https://via.placeholder.com/120x100/fce4ec/d0006f?text=Flyer'" />
+              <img src="graphics/zeus-banner.png" alt="ZeusCareers Banner" onerror="this.src='https://via.placeholder.com/120x100/fce4ec/d0006f?text=Banner'" />
+              <img src="graphics/zeus-insta.png" alt="ZeusCareers Instagram Post" onerror="this.src='https://via.placeholder.com/120x100/fce4ec/d0006f?text=Social'" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="case-study">
-      <h3>PassionateSoccerCoach.com - Soccer Coaching Resources</h3>
-      <div class="research-section">
-        <h4>🔍 User Research & Insights</h4>
-        <p><strong>Target audience:</strong> Soccer coaches, parents, and players at all levels seeking training resources</p>
-        <p><strong>Key findings:</strong> Community-focused audience that values practical, actionable content. Mix of experienced and beginner coaches looking for inspiration and tools.</p>
-        <p><strong>Design challenge:</strong> Balance energy and enthusiasm with educational credibility; appeal to both serious coaches and passionate parents</p>
-      </div>
-      <div class="design-solutions">
-        <h4>🎨 Design Solutions</h4>
-        <div class="design-grid">
-          <img src="graphics/soccer-flyer.png" alt="PassionateSoccerCoach Flyer" />
-          <img src="graphics/soccer-banner.png" alt="PassionateSoccerCoach Banner" />
-          <img src="graphics/soccer-insta.png" alt="PassionateSoccerCoach Instagram Post" />
-        </div>
-      </div>
-    </div>
-
-    <div class="case-study">
-      <h3>ZeusCareers.com - Global Job Platform</h3>
-      <div class="research-section">
-        <h4>🔍 User Research & Insights</h4>
-        <p><strong>Target audience:</strong> Job seekers across multiple industries and geographic locations</p>
-        <p><strong>Key findings:</strong> Diverse, international audience requiring universal design language. Users from finance, tech, retail, and more with varying cultural contexts.</p>
-        <p><strong>Design challenge:</strong> Create versatile designs that work across cultures while maintaining brand consistency and professional appeal</p>
-      </div>
-      <div class="design-solutions">
-        <h4>🎨 Design Solutions</h4>
-        <div class="design-grid">
-          <img src="graphics/zeus-flyer.png" alt="ZeusCareers Flyer" />
-          <img src="graphics/zeus-banner.png" alt="ZeusCareers Banner" />
-          <img src="graphics/zeus-insta.png" alt="ZeusCareers Instagram Post" />
-        </div>
-      </div>
-    </div>
+    <p class="click-hint">💡 Click on any card to expand and see the full case study details</p>
   </section>
+
+  <script>
+    function toggleCard(card) {
+      const isExpanded = card.classList.contains('expanded');
+      
+      // Close all other cards
+      document.querySelectorAll('.case-study-card').forEach(c => {
+        if (c !== card) {
+          c.classList.remove('expanded');
+        }
+      });
+      
+      // Toggle the clicked card
+      if (isExpanded) {
+        card.classList.remove('expanded');
+      } else {
+        card.classList.add('expanded');
+      }
+    }
+  </script>
 </body>
 </html>
