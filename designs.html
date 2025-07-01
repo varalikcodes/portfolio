@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title> Design Showcase | Varalika</title>
+  <title>Graphic Design Showcase | Varalika</title>
   <link rel="stylesheet" href="dstyle.css" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
 </head>
@@ -16,14 +16,19 @@
   </header>
   
   <section class="content-section">
-    <h2>Design Showcase</h2>
+    <h2>Client Case Studies</h2>
     <p>Design work completed during my internship at BestLogic Staffing, showcasing user research and targeted design solutions</p>
     
     <div class="case-studies-grid">
       <!-- RNNation Card -->
       <div class="case-study-card" id="card-rn">
         <div class="card-header">
-          <h3 class="company-name">RNNation.com</h3>
+          <div class="company-info">
+            <a href="https://www.RNNation.com" target="_blank" class="company-logo" onclick="event.stopPropagation();">
+              <img src="logos/rnnation-logo.png" alt="RNNation Logo" onerror="this.src='https://via.placeholder.com/80x40/fce4ec/d0006f?text=RN'" />
+            </a>
+            <h3 class="company-name">RNNation.com</h3>
+          </div>
           <span class="expand-icon">⌄</span>
         </div>
         <div class="card-preview">
@@ -57,7 +62,12 @@
       <!-- PassionateSoccerCoach Card -->
       <div class="case-study-card" id="card-soccer">
         <div class="card-header">
-          <h3 class="company-name">PassionateSoccerCoach.com</h3>
+          <div class="company-info">
+            <a href="https://www.PassionateSoccerCoach.com" target="_blank" class="company-logo" onclick="event.stopPropagation();">
+              <img src="logos/soccer-logo.png" alt="PassionateSoccerCoach Logo" onerror="this.src='https://via.placeholder.com/80x40/fce4ec/d0006f?text=PSC'" />
+            </a>
+            <h3 class="company-name">PassionateSoccerCoach.com</h3>
+          </div>
           <span class="expand-icon">⌄</span>
         </div>
         <div class="card-preview">
@@ -91,7 +101,12 @@
       <!-- ZeusCareers Card -->
       <div class="case-study-card" id="card-zeus">
         <div class="card-header">
-          <h3 class="company-name">ZeusCareers.com</h3>
+          <div class="company-info">
+            <a href="https://www.ZeusCareers.com" target="_blank" class="company-logo" onclick="event.stopPropagation();">
+              <img src="logos/zeus-logo.png" alt="ZeusCareers Logo" onerror="this.src='https://via.placeholder.com/80x40/fce4ec/d0006f?text=Zeus'" />
+            </a>
+            <h3 class="company-name">ZeusCareers.com</h3>
+          </div>
           <span class="expand-icon">⌄</span>
         </div>
         <div class="card-preview">
@@ -123,7 +138,7 @@
       </div>
     </div>
 
-    <p class="click-hint">💡 Click on any card to expand and see the full case study details</p>
+    <p class="click-hint">💡 Click on any card to expand details • Click logos to visit company websites</p>
   </section>
 
   <script>
