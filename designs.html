@@ -4,284 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Graphic Design Showcase | Varalika</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="dstyle.css" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
-  <style>
-    /* Using your website's exact color scheme and styling */
-    :root {
-      --bg-color: rgba(255, 255, 255, 0.7);
-      --text-color: #000000;
-      --accent-color: #d0006f;
-      --secondary-bg: rgba(247, 247, 247, 0.7);
-      --shadow-color: rgba(0, 0, 0, 0.05);
-    }
-
-    [data-theme='dark'] {
-      --bg-color: rgba(0, 0, 0, 0.7);
-      --text-color: #ffffff;
-      --accent-color: #ff77ff;
-      --secondary-bg: rgba(17, 17, 17, 0.6);
-      --shadow-color: #ff77ff40;
-    }
-
-    body {
-      font-family: 'Space Mono', monospace;
-      margin: 0;
-      padding: 0;
-      color: var(--text-color);
-      background-color: var(--bg-color);
-      background-image: url('background_light.jpg');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
-      transition: background-color 0.3s ease, color 0.3s ease, background-image 0.3s ease;
-      min-height: 100vh;
-    }
-
-    [data-theme='dark'] body {
-      background-image: url('background_dark.jpg');
-    }
-
-    /* Dark overlay for readability */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.4);
-      z-index: -1;
-    }
-
-    .case-studies-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
-      margin: 2rem 0;
-    }
-
-    .case-study-card {
-      background-color: var(--bg-color);
-      border: 1px solid var(--accent-color);
-      border-radius: 8px;
-      padding: 1.5rem;
-      cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      backdrop-filter: blur(6px);
-      box-shadow: 0 0 10px var(--shadow-color);
-    }
-
-    .case-study-card:hover {
-      transform: scale(1.02);
-      box-shadow: 0 0 10px var(--accent-color);
-    }
-
-    .card-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 1rem;
-    }
-
-    .company-name {
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: var(--accent-color);
-      margin: 0;
-      text-shadow: 0 0 5px var(--accent-color);
-    }
-
-    .expand-icon {
-      font-size: 1.5rem;
-      transition: transform 0.3s ease;
-      color: var(--accent-color);
-    }
-
-    .case-study-card.expanded .expand-icon {
-      transform: rotate(180deg);
-    }
-
-    .card-preview {
-      color: var(--text-color);
-      font-size: 0.9rem;
-      line-height: 1.5;
-    }
-
-    .card-details {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease-out;
-      margin-top: 0;
-    }
-
-    .case-study-card.expanded .card-details {
-      max-height: 1000px;
-      margin-top: 1.5rem;
-    }
-
-    .research-section, .design-solutions {
-      margin-bottom: 1.5rem;
-    }
-
-    .section-title {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 0.8rem;
-      color: var(--accent-color);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      text-shadow: 0 0 5px var(--accent-color);
-    }
-
-    .detail-item {
-      margin-bottom: 0.8rem;
-      line-height: 1.6;
-      color: var(--text-color);
-    }
-
-    .detail-item strong {
-      color: var(--accent-color);
-      font-weight: bold;
-    }
-
-    .design-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .design-grid img {
-      width: 100%;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 10px;
-      border: 2px solid var(--accent-color);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 0 10px var(--shadow-color);
-    }
-
-    .design-grid img:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 15px var(--accent-color);
-    }
-
-    .click-hint {
-      text-align: center;
-      color: var(--text-color);
-      font-style: italic;
-      margin-top: 1rem;
-      font-size: 0.9rem;
-      opacity: 0.8;
-    }
-
-    /* Header matching your website style */
-    header {
-      padding: 20px 40px;
-      background-color: var(--bg-color);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid #ccc;
-      backdrop-filter: blur(5px);
-    }
-
-    .terminal-title {
-      font-size: 28px;
-      color: var(--accent-color);
-      margin: 0;
-      flex: 1;
-      white-space: nowrap;
-      overflow: hidden;
-      text-shadow: 0 0 5px var(--accent-color), 0 0 10px var(--accent-color);
-    }
-
-    .cursor {
-      display: inline-block;
-      animation: blink 1s step-end infinite;
-      color: var(--accent-color);
-    }
-
-    @keyframes blink {
-      from, to { opacity: 0; }
-      50% { opacity: 1; }
-    }
-
-    .social-links {
-      display: flex;
-      align-items: center;
-    }
-
-    .credential-button {
-      display: inline-block;
-      background-color: var(--accent-color);
-      color: white;
-      padding: 8px 16px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-
-    .credential-button:hover {
-      background-color: #b0005a;
-    }
-
-    [data-theme='dark'] .credential-button:hover {
-      background-color: #e066e6;
-    }
-
-    /* Content section matching your website */
-    .content-section {
-      background-color: var(--secondary-bg);
-      padding: 30px 50px;
-      max-width: 900px;
-      margin: 20px auto;
-      border-left: 3px solid var(--accent-color);
-      border-radius: 8px;
-      box-shadow: 0 0 10px var(--shadow-color);
-      backdrop-filter: blur(6px);
-    }
-
-    .content-section h2 {
-      color: var(--accent-color);
-      border-bottom: 1px solid var(--accent-color);
-      padding-bottom: 5px;
-      margin-bottom: 15px;
-      text-shadow: 0 0 5px var(--accent-color);
-    }
-
-    .content-section p {
-      color: var(--text-color);
-    }
-
-    /* Mobile responsiveness */
-    @media (max-width: 768px) {
-      .content-section {
-        padding: 20px 30px;
-        margin: 15px auto;
-      }
-      
-      .case-studies-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-      
-      header {
-        padding: 15px 20px;
-      }
-      
-      .terminal-title {
-        font-size: 20px;
-      }
-    }
-  </style>
 </head>
 <body>
   <header>
-    <h1 class="terminal-title">Varalika's Designs<span class="cursor">|</span></h1>
+    <h1 class="terminal-title"> Varalika's Designs<span class="cursor">|</span></h1>
     <div class="social-links">
       <a href="index.html" class="credential-button">Portfolio</a>
     </div>
@@ -316,7 +44,7 @@
             </div>
           </div>
           <div class="design-solutions">
-            <h4 class="section-title"> Design Solutions</h4>
+            <h4 class="section-title">Design Solutions</h4>
             <div class="design-grid">
               <img src="graphics/rn-flyer.png" alt="RNNation Flyer" onerror="this.src='https://via.placeholder.com/120x100/fce4ec/d0006f?text=Flyer'" />
               <img src="graphics/rn-banner.png" alt="RNNation Banner" onerror="this.src='https://via.placeholder.com/120x100/fce4ec/d0006f?text=Banner'" />
@@ -338,7 +66,7 @@
         </div>
         <div class="card-details">
           <div class="research-section">
-            <h4 class="section-title"> User Research & Insights</h4>
+            <h4 class="section-title">User Research & Insights</h4>
             <div class="detail-item">
               <strong>Target audience:</strong> Soccer coaches, parents, and players at all levels seeking training resources
             </div>
@@ -350,7 +78,7 @@
             </div>
           </div>
           <div class="design-solutions">
-            <h4 class="section-title"> Design Solutions</h4>
+            <h4 class="section-title">Design Solutions</h4>
             <div class="design-grid">
               <img src="graphics/soccer-flyer.png" alt="PassionateSoccerCoach Flyer" onerror="this.src='https://via.placeholder.com/120x100/fce4ec/d0006f?text=Flyer'" />
               <img src="graphics/soccer-banner.png" alt="PassionateSoccerCoach Banner" onerror="this.src='https://via.placeholder.com/120x100/fce4ec/d0006f?text=Banner'" />
@@ -372,7 +100,7 @@
         </div>
         <div class="card-details">
           <div class="research-section">
-            <h4 class="section-title"> User Research & Insights</h4>
+            <h4 class="section-title">🔍 User Research & Insights</h4>
             <div class="detail-item">
               <strong>Target audience:</strong> Job seekers across multiple industries and geographic locations
             </div>
@@ -384,7 +112,7 @@
             </div>
           </div>
           <div class="design-solutions">
-            <h4 class="section-title"> Design Solutions</h4>
+            <h4 class="section-title">Design Solutions</h4>
             <div class="design-grid">
               <img src="graphics/zeus-flyer.png" alt="ZeusCareers Flyer" onerror="this.src='https://via.placeholder.com/120x100/fce4ec/d0006f?text=Flyer'" />
               <img src="graphics/zeus-banner.png" alt="ZeusCareers Banner" onerror="this.src='https://via.placeholder.com/120x100/fce4ec/d0006f?text=Banner'" />
@@ -395,7 +123,7 @@
       </div>
     </div>
 
-    <p class="click-hint"> Click on any card to expand and see the full case study details</p>
+    <p class="click-hint">Click on any card to expand and see the full case study details</p>
   </section>
 
   <script>
