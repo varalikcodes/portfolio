@@ -77,6 +77,37 @@ body::before {
   margin-bottom: 1rem;
 }
 
+.company-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.company-logo {
+  transition: transform 0.2s ease;
+  display: block;
+}
+
+.company-logo:hover {
+  transform: scale(1.05);
+}
+
+.company-logo img {
+  height: 40px;
+  width: auto;
+  max-width: 80px;
+  border-radius: 6px;
+  border: 1px solid var(--accent-color);
+  padding: 4px;
+  background: white;
+  transition: box-shadow 0.2s ease;
+}
+
+.company-logo img:hover {
+  box-shadow: 0 0 8px var(--accent-color);
+}
+
 .company-name {
   font-size: 1.3rem;
   font-weight: 600;
@@ -268,5 +299,18 @@ header {
   
   .terminal-title {
     font-size: 20px;
+  }
+
+  .company-info {
+    gap: 0.75rem;
+  }
+
+  .company-name {
+    font-size: 1.1rem;
+  }
+
+  .company-logo img {
+    height: 35px;
+    max-width: 70px;
   }
 }
