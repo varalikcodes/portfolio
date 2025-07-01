@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Graphic Design Showcase | Varalika</title>
+  <title> Design Showcase | Varalika</title>
   <link rel="stylesheet" href="dstyle.css" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
 </head>
@@ -16,12 +16,12 @@
   </header>
   
   <section class="content-section">
-    <h2>Client Case Studies</h2>
+    <h2>Design Showcase</h2>
     <p>Design work completed during my internship at BestLogic Staffing, showcasing user research and targeted design solutions</p>
     
     <div class="case-studies-grid">
       <!-- RNNation Card -->
-      <div class="case-study-card">
+      <div class="case-study-card" id="card-rn">
         <div class="card-header">
           <h3 class="company-name">RNNation.com</h3>
           <span class="expand-icon">⌄</span>
@@ -32,7 +32,7 @@
         </div>
         <div class="card-details">
           <div class="research-section">
-            <h4 class="section-title">User Research & Insights</h4>
+            <h4 class="section-title">🔍 User Research & Insights</h4>
             <div class="detail-item">
               <strong>Target audience:</strong> Registered nurses and healthcare professionals seeking employment
             </div>
@@ -44,7 +44,7 @@
             </div>
           </div>
           <div class="design-solutions">
-            <h4 class="section-title">Design Solutions</h4>
+            <h4 class="section-title">🎨 Design Solutions</h4>
             <div class="design-grid">
               <img src="graphics/rn-flyer.png" alt="RNNation Flyer" onerror="this.src='https://via.placeholder.com/120x100/fce4ec/d0006f?text=Flyer'" />
               <img src="graphics/rn-banner.png" alt="RNNation Banner" onerror="this.src='https://via.placeholder.com/120x100/fce4ec/d0006f?text=Banner'" />
@@ -55,7 +55,7 @@
       </div>
 
       <!-- PassionateSoccerCoach Card -->
-      <div class="case-study-card">
+      <div class="case-study-card" id="card-soccer">
         <div class="card-header">
           <h3 class="company-name">PassionateSoccerCoach.com</h3>
           <span class="expand-icon">⌄</span>
@@ -66,7 +66,7 @@
         </div>
         <div class="card-details">
           <div class="research-section">
-            <h4 class="section-title">User Research & Insights</h4>
+            <h4 class="section-title">🔍 User Research & Insights</h4>
             <div class="detail-item">
               <strong>Target audience:</strong> Soccer coaches, parents, and players at all levels seeking training resources
             </div>
@@ -78,7 +78,7 @@
             </div>
           </div>
           <div class="design-solutions">
-            <h4 class="section-title">Design Solutions</h4>
+            <h4 class="section-title">🎨 Design Solutions</h4>
             <div class="design-grid">
               <img src="graphics/soccer-flyer.png" alt="PassionateSoccerCoach Flyer" onerror="this.src='https://via.placeholder.com/120x100/fce4ec/d0006f?text=Flyer'" />
               <img src="graphics/soccer-banner.png" alt="PassionateSoccerCoach Banner" onerror="this.src='https://via.placeholder.com/120x100/fce4ec/d0006f?text=Banner'" />
@@ -89,7 +89,7 @@
       </div>
 
       <!-- ZeusCareers Card -->
-      <div class="case-study-card">
+      <div class="case-study-card" id="card-zeus">
         <div class="card-header">
           <h3 class="company-name">ZeusCareers.com</h3>
           <span class="expand-icon">⌄</span>
@@ -112,7 +112,7 @@
             </div>
           </div>
           <div class="design-solutions">
-            <h4 class="section-title">Design Solutions</h4>
+            <h4 class="section-title">🎨 Design Solutions</h4>
             <div class="design-grid">
               <img src="graphics/zeus-flyer.png" alt="ZeusCareers Flyer" onerror="this.src='https://via.placeholder.com/120x100/fce4ec/d0006f?text=Flyer'" />
               <img src="graphics/zeus-banner.png" alt="ZeusCareers Banner" onerror="this.src='https://via.placeholder.com/120x100/fce4ec/d0006f?text=Banner'" />
@@ -123,46 +123,57 @@
       </div>
     </div>
 
-    <p class="click-hint">Click on any card to expand and see the full case study details</p>
+    <p class="click-hint">💡 Click on any card to expand and see the full case study details</p>
   </section>
 
   <script>
-    function toggleCard(event, card) {
-      // Prevent event bubbling
-      event.stopPropagation();
-      
-      const isExpanded = card.classList.contains('expanded');
-      
-      // Close all cards first
-      document.querySelectorAll('.case-study-card').forEach(c => {
-        c.classList.remove('expanded');
-      });
-      
-      // If the clicked card wasn't expanded, expand it
-      if (!isExpanded) {
-        card.classList.add('expanded');
-      }
-    }
-
-    // Alternative: Add event listeners instead of inline onclick
+    // Wait for the page to fully load
     document.addEventListener('DOMContentLoaded', function() {
-      const cards = document.querySelectorAll('.case-study-card');
-      cards.forEach((card, index) => {
-        card.addEventListener('click', function(event) {
-          event.preventDefault();
-          event.stopPropagation();
-          
-          const isExpanded = this.classList.contains('expanded');
-          
-          // Close all cards
-          cards.forEach(c => c.classList.remove('expanded'));
-          
-          // If this card wasn't expanded, expand it
-          if (!isExpanded) {
-            this.classList.add('expanded');
+      
+      // Define each card by its unique ID
+      const cards = {
+        'card-rn': document.getElementById('card-rn'),
+        'card-soccer': document.getElementById('card-soccer'),
+        'card-zeus': document.getElementById('card-zeus')
+      };
+      
+      // Function to close all cards
+      function closeAllCards() {
+        Object.values(cards).forEach(card => {
+          if (card) {
+            card.classList.remove('expanded');
           }
         });
+      }
+      
+      // Function to toggle a specific card
+      function toggleCard(cardId) {
+        const card = cards[cardId];
+        if (!card) return;
+        
+        const isCurrentlyExpanded = card.classList.contains('expanded');
+        
+        // Always close all cards first
+        closeAllCards();
+        
+        // If this card wasn't expanded, expand it
+        if (!isCurrentlyExpanded) {
+          card.classList.add('expanded');
+        }
+      }
+      
+      // Add click listeners to each card individually
+      Object.keys(cards).forEach(cardId => {
+        const card = cards[cardId];
+        if (card) {
+          card.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleCard(cardId);
+          });
+        }
       });
+      
     });
   </script>
 </body>
