@@ -21,16 +21,16 @@ body {
   font-family: 'Space Mono', monospace;
   margin: 0;
   padding: 0;
-  color: var(--text-color);
-  background-color: var(--bg-color);
+  color: var(--text-color, #333);
+  background-color: var(--bg-color, #fff);
   background-image: url('background_light.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
   transition: background-color 0.3s ease, color 0.3s ease, background-image 0.3s ease;
-  min-height: 100vh;
 }
+
 
 [data-theme='dark'] body {
   background-image: url('background_dark.jpg');
