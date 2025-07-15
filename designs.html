@@ -8,120 +8,34 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1 class="terminal-title"> Varalika's Designs<span class="cursor">|</span></h1>
-    <div class="social-links">
-      <a href="index.html" class="credential-button">Portfolio</a>
-    </div>
-  </header>
-  
-  <section class="content-section aesthetic-section">
-  <h2 class="aesthetic-heading">✨ Client Case Studies</h2>
-  <p class="aesthetic-subheading">Design work from my BestLogic Staffing internship, redesigned with my personal style</p>
+  <section class="figma-aesthetic">
+  <div class="designs-frame">
+    <div class="designs-label">Studio Varalika</div>
+    <a href="index.html" class="designs-button">Portfolio</a>
 
-  <div class="case-cards-grid">
-
-    <!-- RNNation -->
-    <div class="aesthetic-card pink">
-      <h3>🎨 RNNation.com</h3>
-      <p class="aesthetic-tagline">Healthcare Job Board for Nurses</p>
-      <ul>
-        <li>👩‍⚕️ Target: Registered nurses seeking jobs</li>
-        <li>🔍 Insight: Trust & clear job listings matter</li>
-        <li>💡 Challenge: Convey reliability in a saturated space</li>
-      </ul>
-      <div class="aesthetic-images">
-        <img src="graphics/rn-flyer.png" alt="RNNation Flyer" />
-        <img src="graphics/rn-banner.png" alt="RNNation Banner" />
-        <img src="graphics/rn-insta.png" alt="RNNation Social Post" />
-      </div>
+    <div class="design-card" style="top: 48px; left: 732px;">
+      <p> BestLogicStaffing</p>
     </div>
 
-    <!-- Passionate Soccer Coach -->
-    <div class="aesthetic-card green">
-      <h3>⚽ Passionate Soccer Coach</h3>
-      <p class="aesthetic-tagline">Designing for Energy, Community, and Growth</p>
-      <ul>
-        <li>🧠 Focus: Tips, workshops, and inclusive coaching</li>
-        <li>📢 Style: Dynamic visuals + friendly layout</li>
-        <li>🎯 Audience: Beginners & veterans seeking motivation</li>
-      </ul>
-      <div class="aesthetic-images">
-        <img src="graphics/soccer-flyer.png" alt="Soccer Flyer" />
-        <img src="graphics/soccer-banner.png" alt="Soccer Banner" />
-        <img src="graphics/soccer-insta.png" alt="Soccer Social" />
-      </div>
+    <div class="design-card" style="top: 186px; left: 1037px;">
+      <p> RNNation</p>
     </div>
 
-    <!-- Zeus Careers -->
-    <div class="aesthetic-card blue">
-      <h3>⚡ Zeus Careers</h3>
-      <p class="aesthetic-tagline">A Global Platform That Empowers Professionals</p>
-      <ul>
-        <li>🌍 Designed for international job seekers</li>
-        <li>🔧 Tools: Clean branding, universal layout</li>
-        <li>🚀 Strategy: Adaptable designs across cultures</li>
-      </ul>
-      <div class="aesthetic-images">
-        <img src="graphics/zeus-flyer.png" alt="Zeus Flyer" />
-        <img src="graphics/zeus-banner.png" alt="Zeus Banner" />
-        <img src="graphics/zeus-insta.png" alt="Zeus Social" />
-      </div>
+    <div class="design-card" style="top: 375px; left: 706px;">
+      <p> Passionate Soccer Coach</p>
     </div>
 
+    <div class="design-card" style="top: 483px; left: 1053px;">
+      <p> Zeus Careers</p>
+    </div>
+
+    <div class="design-label" style="top: 138px; left: 849px;">BestLogicStaffing</div>
+    <div class="design-label" style="top: 286px; left: 1200px;">RNNation</div>
+    <div class="design-label" style="top: 472px; left: 843px;">Zeus Careers</div>
+    <div class="design-label" style="top: 580px; left: 1120px;">Passionate Soccer Coach</div>
   </div>
 </section>
 
 
-  <script>
-    // Wait for the page to fully load
-    document.addEventListener('DOMContentLoaded', function() {
-      
-      // Define each card by its unique ID
-      const cards = {
-        'card-rn': document.getElementById('card-rn'),
-        'card-soccer': document.getElementById('card-soccer'),
-        'card-zeus': document.getElementById('card-zeus')
-      };
-      
-      // Function to close all cards
-      function closeAllCards() {
-        Object.values(cards).forEach(card => {
-          if (card) {
-            card.classList.remove('expanded');
-          }
-        });
-      }
-      
-      // Function to toggle a specific card
-      function toggleCard(cardId) {
-        const card = cards[cardId];
-        if (!card) return;
-        
-        const isCurrentlyExpanded = card.classList.contains('expanded');
-        
-        // Always close all cards first
-        closeAllCards();
-        
-        // If this card wasn't expanded, expand it
-        if (!isCurrentlyExpanded) {
-          card.classList.add('expanded');
-        }
-      }
-      
-      // Add click listeners to each card individually
-      Object.keys(cards).forEach(cardId => {
-        const card = cards[cardId];
-        if (card) {
-          card.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            toggleCard(cardId);
-          });
-        }
-      });
-      
-    });
-  </script>
 </body>
 </html>
