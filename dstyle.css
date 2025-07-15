@@ -1,211 +1,108 @@
-/* Root Theme Variables */
 :root {
-  --bg-color: rgba(255, 255, 255, 0.7);
+  --accent-color: #D0006F;
   --text-color: #000000;
-  --accent-color: #d0006f;
-  --secondary-bg: rgba(247, 247, 247, 0.7);
-  --shadow-color: rgba(0, 0, 0, 0.05);
+  --card-bg: rgba(255, 255, 255, 0.75);
+  --font: 'Space Mono', monospace;
 }
 
-[data-theme='dark'] {
-  --bg-color: rgba(0, 0, 0, 0.7);
-  --text-color: #ffffff;
-  --accent-color: #ff77ff;
-  --secondary-bg: rgba(17, 17, 17, 0.6);
-  --shadow-color: #ff77ff40;
-}
-
-/* Base Body Styling */
-body {
-  font-family: 'Space Mono', monospace;
+body, html {
   margin: 0;
   padding: 0;
-  color: var(--text-color);
-  background-color: var(--bg-color);
-  background-image: url('background_light.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  transition: background-color 0.3s ease, color 0.3s ease, background-image 0.3s ease;
-}
-
-[data-theme='dark'] body {
-  background-image: url('background_dark.jpg');
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
+  font-family: var(--font);
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
-  z-index: -1;
+  overflow: hidden;
 }
 
-/* Section Title */
-.showcase-title {
-  font-size: 30px;
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: url('background_light.jpg') no-repeat center center / cover;
+}
+
+/* Studio Title */
+.studio-title {
+  position: absolute;
+  top: 50px;
+  left: 80px;
+  font-size: 32px;
   color: var(--accent-color);
-  text-align: center;
-  margin-top: 40px;
   text-shadow: 0 0 8px var(--accent-color);
 }
 
-/* Grid Layout */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  justify-items: center;
-  padding: 2rem;
+/* Portfolio Button */
+.portfolio-button {
+  position: absolute;
+  top: 50px;
+  right: 60px;
+  padding: 10px 20px;
+  background-color: var(--accent-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 999px;
+  font-weight: bold;
+  font-size: 14px;
 }
 
-/* Card Component */
-.card {
-  background: rgba(255, 255, 255, 0.85);
-  border-radius: 24px;
+/* Translucent Card Container */
+.hero-container {
+  position: absolute;
+  top: 50%;
+  right: 60px;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 40px 30px;
+  border-radius: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 20px rgba(208, 0, 111, 0.2);
+}
+
+/* Individual Cards */
+.hero-card {
+  width: 300px;
+  padding: 20px 24px;
+  background-color: var(--card-bg);
   border: 2px solid var(--accent-color);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  padding: 24px;
-  width: 100%;
-  max-width: 400px;
+  border-radius: 50px;
+  box-shadow: 0 0 10px var(--accent-color);
+  color: var(--accent-color);
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
   cursor: pointer;
   transition: transform 0.3s ease;
-  position: relative;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-}
-
-.card h3 {
-  margin: 0 0 10px;
-  font-size: 22px;
-  color: var(--accent-color);
-  text-shadow: 0 0 5px var(--accent-color);
-}
-
-.card p {
-  font-size: 0.95rem;
-  color: var(--text-color);
-}
-
-/* Expand Section */
-.card .card-back {
-  display: none;
-  margin-top: 20px;
-  text-align: left;
-  transition: opacity 0.3s ease;
-}
-
-.card.expanded .card-back {
-  display: block;
-}
-
-/* Design Images */
-.design-images {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.design-images img {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px var(--shadow-color);
-  transition: transform 0.3s ease;
-}
-
-.design-images img:hover {
+.hero-card:hover {
   transform: scale(1.03);
 }
 
-/* Mobile Responsive */
+/* Responsive */
 @media (max-width: 768px) {
-  .card-grid {
-    grid-template-columns: 1fr;
+  .hero-container {
+    right: 20px;
+    padding: 30px 20px;
+    border-radius: 40px;
   }
 
-  .design-images img {
-    width: 80px;
-    height: 80px;
+  .hero-card {
+    width: 240px;
+    font-size: 16px;
   }
 
-  .showcase-title {
-    font-size: 22px;
+  .studio-title {
+    font-size: 24px;
+    left: 40px;
+    top: 30px;
   }
-}
 
-/* Optional: Legacy Figma-Aesthetic Style */
-.figma-aesthetic {
-  width: 100%;
-  min-height: 771px;
-  position: relative;
-  padding: 20px 0;
-}
-
-.designs-frame {
-  width: 1512px;
-  height: 771px;
-  position: relative;
-  margin: 0 auto;
-  background: var(--bg-color);
-}
-
-.designs-label {
-  position: absolute;
-  top: 73px;
-  left: 267px;
-  font-size: 28px;
-  color: var(--accent-color);
-  text-shadow: 0 0 10px var(--accent-color);
-  font-weight: 400;
-  line-height: 42px;
-}
-
-.designs-button {
-  position: absolute;
-  top: 33px;
-  left: 1359px;
-  background: var(--accent-color);
-  border-radius: 18px;
-  color: white;
-  padding: 8px 16px;
-  text-decoration: none;
-  font-size: 16px;
-}
-
-.design-card {
-  width: 427px;
-  height: 225px;
-  position: absolute;
-  padding: 25.5px;
-  background: var(--bg-color);
-  box-shadow: 0px 0px 10px var(--accent-color);
-  border-radius: 79px;
-  border: 1px solid var(--accent-color);
-  backdrop-filter: blur(3px);
-  display: flex;
-  align-items: center;
-  font-size: 20px;
-  color: var(--accent-color);
-}
-
-.design-card p {
-  margin: 0;
-}
-
-.design-label {
-  position: absolute;
-  font-size: 20.8px;
-  color: var(--accent-color);
-  text-shadow: 0px 0px 5px var(--accent-color);
-  font-weight: 400;
-  text-decoration: underline;
-  line-height: 31.2px;
+  .portfolio-button {
+    top: 30px;
+    right: 30px;
+    font-size: 12px;
+    padding: 8px 16px;
+  }
 }
