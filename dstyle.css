@@ -314,3 +314,87 @@ header {
     max-width: 70px;
   }
 }
+/* Aesthetic Layout */
+
+.aesthetic-section {
+  background: #FAF5F0;
+  padding: 60px 20px;
+  font-family: 'Space Mono', monospace;
+}
+
+.aesthetic-heading {
+  font-size: 32px;
+  color: #d0006f;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.aesthetic-subheading {
+  text-align: center;
+  color: #666;
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+
+.case-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  justify-items: center;
+}
+
+.aesthetic-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 24px;
+  padding: 30px;
+  max-width: 360px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.aesthetic-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+.aesthetic-card h3 {
+  margin-top: 0;
+  font-size: 22px;
+  color: #d0006f;
+}
+
+.aesthetic-tagline {
+  font-style: italic;
+  color: #666;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.aesthetic-card ul {
+  padding-left: 20px;
+  font-size: 15px;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.aesthetic-images {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.aesthetic-images img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* Color Variants */
+.aesthetic-card.pink h3 { color: #d0006f; }
+.aesthetic-card.green h3 { color: #2ecc71; }
+.aesthetic-card.blue h3 { color: #3498db; }
+
