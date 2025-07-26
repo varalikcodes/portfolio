@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Design Portfolio | Varalika</title>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+  <title>Studio Varalika</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
   <style>
     /* Theme Variables */
     :root {
@@ -272,30 +273,16 @@
       flex-wrap: wrap;
     }
 
-    .modal-header h2 {
-      margin: 0;
-      border: none;
-      text-shadow: none;
-      color: white;
-      flex: 1;
-    }
-
-    .company-website-link {
+    .modal-header h2 a {
       color: white;
       text-decoration: none;
-      font-size: 14px;
-      opacity: 0.9;
-      margin-right: 20px;
-      padding: 5px 10px;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 4px;
-      transition: all 0.3s ease;
+      border: none;
     }
 
-    .company-website-link:hover {
-      opacity: 1;
-      background-color: rgba(255, 255, 255, 0.1);
-      transform: translateY(-1px);
+    .modal-header h2 a:hover {
+      color: white;
+      text-decoration: none;
+      opacity: 0.9;
     }
 
     .close {
@@ -405,12 +392,12 @@
   </style>
 </head>
 <body>
-  <header>
-    <h1 class="terminal-title">Studio Varalika<span class="cursor">|</span></h1>
-    <div class="social-links">
-      <button id="theme-toggle" aria-label="Toggle Theme">🌓</button>
-      <a href="index.html" class="credential-button">← Portfolio </a>
-    </div>
+  <<header>
+  <h1 class="terminal-title"><span id="typed-text"></span><span class="cursor">|</span></h1>
+  <div class="social-links">
+    <button id="theme-toggle" aria-label="Toggle Theme">🌓</button>
+    <a href="index.html" class="credential-button">Portfolio</a>
+  </div>
   </header>
 
   <section class="content-section">
@@ -460,9 +447,9 @@
   <div id="modal1" class="modal zeuscareers">
     <div class="modal-content">
       <div class="modal-header">
-        <h2>ZeusCareers</h2>
+        <h2><a href="https://www.zeuscareers.com/" target="_blank">ZeusCareers</a></h2>
         <span class="close" onclick="closeModal('modal1')">&times;</span>
-      </div>
+      </div>  
       <div class="modal-body">
         <div class="modal-section">
           <h3>Company Overview</h3>
@@ -533,9 +520,9 @@
   <!-- Modal 2: RNNation -->
   <div id="modal2" class="modal rnnation">
     <div class="modal-content">
-      <div class="modal-header">
-        <h2>RNNation</h2>
-        <span class="close" onclick="closeModal('modal2')">&times;</span>
+      <<div class="modal-header">
+        <h2><a href="https://www.rnnation.com/" target="_blank">RNNation</a></h2>
+        <span class="close" onclick="closeModal('modal1')">&times;</span>
       </div>
       <div class="modal-body">
         <div class="modal-section">
@@ -607,14 +594,14 @@
   <!-- Modal 3: Passionate Soccer Coach -->
   <div id="modal3" class="modal passionatesoccercoach">
     <div class="modal-content">
-      <div class="modal-header">
-        <h2>Passionate Soccer Coach</h2>
-        <span class="close" onclick="closeModal('modal3')">&times;</span>
-      </div>
+    <div class="modal-header">
+      <h2><a href="https://www.passionatesoccercoach.com/home" target="_blank">Passionate Soccer Coach</a></h2>
+      <span class="close" onclick="closeModal('modal1')">&times;</span>
+    </div>
       <div class="modal-body">
         <div class="modal-section">
           <h3>Company Overview</h3>
-          <p>PassionateSoccerCoach.com is a comprehensive resource hub for soccer coaches at all levels, founded by Aldin Beslagic with 15 years of coaching experience. The platform provides knowledge, tools, and inspiration for coaches, parents, and players, offering training resources, practice plans, coaching philosophy guidance, and a supportive community for youth soccer development.</p>
+          <p>PassionateSoccerCoach is a comprehensive resource hub for soccer coaches at all levels, founded by Aldin Beslagic with 15 years of coaching experience. The platform provides knowledge, tools, and inspiration for coaches, parents, and players, offering training resources, practice plans, coaching philosophy guidance, and a supportive community for youth soccer development.</p>
         </div>
 
         <div class="modal-section">
@@ -682,8 +669,8 @@
   <div id="modal4" class="modal bestlogic">
     <div class="modal-content">
       <div class="modal-header">
-        <h2>BestLogic Staffing</h2>
-        <span class="close" onclick="closeModal('modal4')">&times;</span>
+        <h2><a href="https://www.bestlogicstaffing.com/" target="_blank">BestLogic Staffing</a></h2>
+        <span class="close" onclick="closeModal('modal1')">&times;</span>
       </div>
       <div class="modal-body">
         <div class="modal-section">
@@ -753,6 +740,23 @@
   </div>
 
   <script>
+    // Typing Animation
+  const textToType = "Studio Varalika";
+  const typedTextElement = document.getElementById('typed-text');
+  let currentIndex = 0;
+  
+  function typeText() {
+    if (currentIndex < textToType.length) {
+      typedTextElement.textContent += textToType.charAt(currentIndex);
+      currentIndex++;
+      setTimeout(typeText, 100); // Adjust speed here (100ms = normal speed)
+    }
+  }
+
+// Start typing animation when page loads
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(typeText, 500); // Small delay before starting
+});
     // Modal Functions
     function openModal(modalId) {
       document.getElementById(modalId).style.display = 'block';
