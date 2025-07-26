@@ -3,28 +3,707 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Graphic Design Showcase | Varalika</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Design Portfolio | Varalika</title>
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+  <style>
+    /* Theme Variables */
+    :root {
+      --bg-color: rgba(255, 255, 255, 0.7);
+      --text-color: #000000;
+      --accent-color: #d0006f;
+      --secondary-bg: rgba(247, 247, 247, 0.7);
+      --shadow-color: rgba(0, 0, 0, 0.05);
+    }
+
+    [data-theme='dark'] {
+      --bg-color: rgba(0, 0, 0, 0.7);
+      --text-color: #ffffff;
+      --accent-color: #ff77ff;
+      --secondary-bg: rgba(17, 17, 17, 0.6);
+      --shadow-color: #ff77ff40;
+    }
+
+    /* Background Images for Light and Dark */
+    body {
+      font-family: 'Space Mono', monospace;
+      margin: 0;
+      padding: 0;
+      color: var(--text-color);
+      background-color: var(--bg-color);
+      background-image: url('background_light.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      transition: background-color 0.3s ease, color 0.3s ease, background-image 0.3s ease;
+    }
+
+    [data-theme='dark'] body {
+      background-image: url('background_dark.jpg');
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: -1;
+    }
+
+    /* Header */
+    header {
+      padding: 20px 40px;
+      background-color: var(--bg-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #ccc;
+      backdrop-filter: blur(5px);
+    }
+
+    .terminal-title {
+      font-size: 28px;
+      color: var(--accent-color);
+      margin: 0;
+      text-shadow: 0 0 5px var(--accent-color), 0 0 10px var(--accent-color);
+    }
+
+    .cursor {
+      display: inline-block;
+      animation: blink 1s step-end infinite;
+      color: var(--accent-color);
+    }
+
+    @keyframes blink {
+      from, to { opacity: 0; }
+      50% { opacity: 1; }
+    }
+
+    .social-links {
+      display: flex;
+      align-items: center;
+    }
+
+    .credential-button {
+      background-color: var(--accent-color);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .credential-button:hover {
+      background-color: #b0005a;
+    }
+
+    [data-theme='dark'] .credential-button:hover {
+      background-color: #e066e6;
+    }
+
+    #theme-toggle {
+      background: none;
+      border: none;
+      font-size: 20px;
+      margin-left: 15px;
+      cursor: pointer;
+      color: var(--accent-color);
+    }
+
+    /* Main Content */
+    .content-section {
+      background-color: var(--secondary-bg);
+      padding: 30px 50px;
+      max-width: 1200px;
+      margin: 20px auto;
+      border-left: 3px solid var(--accent-color);
+      border-radius: 8px;
+      box-shadow: 0 0 10px var(--shadow-color);
+      backdrop-filter: blur(6px);
+    }
+
+    h2 {
+      color: var(--accent-color);
+      border-bottom: 1px solid var(--accent-color);
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+      text-shadow: 0 0 5px var(--accent-color);
+    }
+
+    /* Company Grid */
+    .company-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .company-card {
+      background-color: var(--bg-color);
+      border: 2px solid var(--accent-color);
+      padding: 20px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(6px);
+      position: relative;
+    }
+
+    .company-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px var(--shadow-color);
+      border-color: var(--accent-color);
+    }
+
+    .company-card h3 {
+      color: var(--accent-color);
+      margin: 0 0 10px 0;
+      text-shadow: 0 0 5px var(--accent-color);
+    }
+
+    .company-card p {
+      margin: 8px 0;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    .click-hint {
+      font-size: 12px;
+      color: var(--accent-color);
+      font-style: italic;
+      margin-top: 15px;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(3px);
+    }
+
+    .modal-content {
+      background-color: var(--bg-color);
+      margin: 2% auto;
+      padding: 0;
+      border: 2px solid var(--accent-color);
+      border-radius: 15px;
+      width: 90%;
+      max-width: 900px;
+      max-height: 85vh;
+      overflow-y: auto;
+      backdrop-filter: blur(10px);
+      position: relative;
+    }
+
+    .modal-header {
+      background-color: var(--accent-color);
+      color: white;
+      padding: 20px 30px;
+      border-radius: 13px 13px 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-header h2 {
+      margin: 0;
+      border: none;
+      text-shadow: none;
+      color: white;
+    }
+
+    .close {
+      color: white;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .close:hover {
+      opacity: 0.7;
+    }
+
+    .modal-body {
+      padding: 30px;
+    }
+
+    .modal-section {
+      margin-bottom: 30px;
+    }
+
+    .modal-section h3 {
+      color: var(--accent-color);
+      border-bottom: 1px solid var(--accent-color);
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+      text-shadow: 0 0 3px var(--accent-color);
+    }
+
+    .design-showcase {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .design-category {
+      background-color: var(--secondary-bg);
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid var(--accent-color);
+    }
+
+    .design-category h4 {
+      color: var(--accent-color);
+      margin: 0 0 10px 0;
+      font-size: 14px;
+    }
+
+    .design-images {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .design-images .placeholder {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--accent-color), #ff99cc);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 10px;
+      text-align: center;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .company-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .modal-content {
+        width: 95%;
+        margin: 5% auto;
+      }
+      
+      .modal-body {
+        padding: 20px;
+      }
+      
+      .design-showcase {
+        grid-template-columns: 1fr;
+      }
+      
+      header {
+        padding: 15px 20px;
+      }
+      
+      .terminal-title {
+        font-size: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
-    <h1 class="terminal-title"> Varalika's Designs<span class="cursor">|</span></h1>
+    <h1 class="terminal-title">🎨 Varalika's Design Portfolio<span class="cursor">|</span></h1>
     <div class="social-links">
-      <a href="index.html" class="credential-button">Portfolio</a>
+      <button id="theme-toggle" aria-label="Toggle Theme">🌓</button>
+      <a href="index.html" class="credential-button">← Back to Resume</a>
     </div>
   </header>
 
   <section class="content-section">
-    <h2>My Design Work</h2>
-    <p>Here are a few of my favorite pieces — from social media graphics to mockups and visual experiments.</p>
+    <h2>Design Portfolio</h2>
+    <p>Explore my design work across 4 different companies. Each project showcases strategic thinking, user-centered design, and creative problem-solving tailored to specific audiences and business goals.</p>
+    
+    <div class="company-grid">
+      <!-- Company 1 -->
+      <div class="company-card" onclick="openModal('modal1')">
+        <h3>BestLogic Staffing</h3>
+        <p><strong>Industry:</strong> Staffing & Recruitment</p>
+        <p><strong>My Role:</strong> Graphic Design Intern</p>
+        <p><strong>Projects:</strong> Logos, brochures, mascots, websites, social media graphics</p>
+        <div class="click-hint">Click to explore design strategy & work →</div>
+      </div>
 
-    <div class="design-gallery">
-      <img src="graphics/design1.png" alt="Design 1" />
-      <img src="graphics/design2.png" alt="Design 2" />
-      <img src="graphics/design3.png" alt="Design 3" />
-  
+      <!-- Company 2 -->
+      <div class="company-card" onclick="openModal('modal2')">
+        <h3>FreeAxez</h3>
+        <p><strong>Industry:</strong> AI & Enterprise Solutions</p>
+        <p><strong>My Role:</strong> Data Analyst Intern</p>
+        <p><strong>Projects:</strong> Marketing materials, technical documentation design, internal tools UI</p>
+        <div class="click-hint">Click to explore design strategy & work →</div>
+      </div>
+
+      <!-- Company 3 -->
+      <div class="company-card" onclick="openModal('modal3')">
+        <h3>Puratos</h3>
+        <p><strong>Industry:</strong> Food Innovation & R&D</p>
+        <p><strong>My Role:</strong> Externship Student</p>
+        <p><strong>Projects:</strong> Web tool interface, decision tree visualizations, presentation materials</p>
+        <div class="click-hint">Click to explore design strategy & work →</div>
+      </div>
+
+      <!-- Company 4 -->
+      <div class="company-card" onclick="openModal('modal4')">
+        <h3>Personal Projects</h3>
+        <p><strong>Industry:</strong> Various Creative Ventures</p>
+        <p><strong>My Role:</strong> Independent Designer</p>
+        <p><strong>Projects:</strong> Social media campaigns, event flyers, merchandise design, branding</p>
+        <div class="click-hint">Click to explore design strategy & work →</div>
+      </div>
     </div>
   </section>
+
+  <!-- Modal 1: BestLogic Staffing -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>BestLogic Staffing</h2>
+        <span class="close" onclick="closeModal('modal1')">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="modal-section">
+          <h3>Company Overview</h3>
+          <p>BestLogic Staffing is a recruitment and staffing company that connects talented professionals with organizations across various industries. They specialize in finding the right fit between candidates and companies, emphasizing both technical skills and cultural alignment.</p>
+        </div>
+
+        <div class="modal-section">
+          <h3>Target Audience & Demographics</h3>
+          <p><strong>Primary Audience:</strong> HR professionals, business owners, and job seekers</p>
+          <p><strong>Demographics:</strong> Ages 25-55, corporate professionals, small to medium business owners</p>
+          <p><strong>Pain Points:</strong> Time-consuming hiring processes, difficulty finding qualified candidates, need for trustworthy recruitment partners</p>
+          <p><strong>Goals:</strong> Streamline hiring, find quality talent quickly, build long-term recruitment relationships</p>
+        </div>
+
+        <div class="modal-section">
+          <h3>Design Strategy & Thought Process</h3>
+          <p>For BestLogic Staffing, I focused on creating designs that convey professionalism, trustworthiness, and efficiency. The color palette emphasizes corporate blues and greens to inspire confidence, while maintaining approachable elements to appeal to both employers and job seekers.</p>
+          <p><strong>Key Design Principles:</strong></p>
+          <ul>
+            <li>Professional yet approachable aesthetic</li>
+            <li>Clear, readable typography for business communications</li>
+            <li>Consistent branding across all materials</li>
+            <li>Modern layouts that reflect industry innovation</li>
+          </ul>
+        </div>
+
+        <div class="modal-section">
+          <h3>Design Showcase</h3>
+          <div class="design-showcase">
+            <div class="design-category">
+              <h4>Logo Design</h4>
+              <div class="design-images">
+                <div class="placeholder">Logo V1</div>
+                <div class="placeholder">Logo V2</div>
+                <div class="placeholder">Final Logo</div>
+              </div>
+            </div>
+            <div class="design-category">
+              <h4>Brochures & Marketing</h4>
+              <div class="design-images">
+                <div class="placeholder">Tri-fold Brochure</div>
+                <div class="placeholder">Service Guide</div>
+                <div class="placeholder">Company Overview</div>
+              </div>
+            </div>
+            <div class="design-category">
+              <h4>Digital Assets</h4>
+              <div class="design-images">
+                <div class="placeholder">Website Mockup</div>
+                <div class="placeholder">Email Template</div>
+                <div class="placeholder">Social Media Kit</div>
+              </div>
+            </div>
+            <div class="design-category">
+              <h4>Brand Mascot</h4>
+              <div class="design-images">
+                <div class="placeholder">Mascot Design</div>
+                <div class="placeholder">Mascot Variations</div>
+                <div class="placeholder">Application Examples</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2: FreeAxez -->
+  <div id="modal2" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Passionate Soccer Coach</h2>
+        <span class="close" onclick="closeModal('modal2')">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="modal-section">
+          <h3>Company Overview</h3>
+          <p>FreeAxez is an innovative AI and enterprise solutions company focused on automating business processes and improving operational efficiency through intelligent technology solutions. They specialize in data-driven automation tools and AI-powered business intelligence.</p>
+        </div>
+
+        <div class="modal-section">
+          <h3>Target Audience & Demographics</h3>
+          <p><strong>Primary Audience:</strong> Enterprise decision-makers, IT professionals, business operations managers</p>
+          <p><strong>Demographics:</strong> Ages 30-50, tech-savvy professionals, mid to large enterprise companies</p>
+          <p><strong>Pain Points:</strong> Manual processes, data silos, inefficient workflows, need for scalable solutions</p>
+          <p><strong>Goals:</strong> Automate repetitive tasks, gain business insights, improve operational efficiency</p>
+        </div>
+
+        <div class="modal-section">
+          <h3>Design Strategy & Thought Process</h3>
+          <p>For FreeAxez, I emphasized a cutting-edge, tech-forward design approach that communicates innovation and reliability. The design language uses clean geometric shapes, modern typography, and a sophisticated color palette to appeal to enterprise audiences while showcasing the company's AI capabilities.</p>
+          <p><strong>Key Design Principles:</strong></p>
+          <ul>
+            <li>Modern, tech-forward aesthetic with clean lines</li>
+            <li>Data visualization elements to represent AI/analytics</li>
+            <li>Professional color scheme (blues, grays, accent colors)</li>
+            <li>Scalable designs for various digital platforms</li>
+          </ul>
+        </div>
+
+        <div class="modal-section">
+          <h3>Design Showcase</h3>
+          <div class="design-showcase">
+            <div class="design-category">
+              <h4>Marketing Materials</h4>
+              <div class="design-images">
+                <div class="placeholder">Product Brochure</div>
+                <div class="placeholder">Case Studies</div>
+                <div class="placeholder">White Papers</div>
+              </div>
+            </div>
+            <div class="design-category">
+              <h4>Social Media</h4>
+              <div class="design-images">
+                <div class="placeholder">LinkedIn Posts</div>
+                <div class="placeholder">Tech Announcements</div>
+                <div class="placeholder">Company Updates</div>
+              </div>
+            </div>
+            <div class="design-category">
+              <h4>Internal Tools UI</h4>
+              <div class="design-images">
+                <div class="placeholder">Dashboard Design</div>
+                <div class="placeholder">Tool Interface</div>
+                <div class="placeholder">User Flow</div>
+              </div>
+            </div>
+            <div class="design-category">
+              <h4>Technical Documentation</h4>
+              <div class="design-images">
+                <div class="placeholder">API Docs</div>
+                <div class="placeholder">User Guides</div>
+                <div class="placeholder">Process Diagrams</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3: Puratos -->
+  <div id="modal3" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Zeus Careers</h2>
+        <span class="close" onclick="closeModal('modal3')">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="modal-section">
+          <h3>Company Overview</h3>
+          <p>Puratos is a global leader in bakery, patisserie, and chocolate ingredients, with a strong focus on food innovation and R&D. They develop cutting-edge solutions for food manufacturers and artisans, emphasizing sustainability and quality in the food industry.</p>
+        </div>
+
+        <div class="modal-section">
+          <h3>Target Audience & Demographics</h3>
+          <p><strong>Primary Audience:</strong> R&D teams, food scientists, business development professionals, strategic decision-makers</p>
+          <p><strong>Demographics:</strong> Ages 25-55, scientific and technical professionals, global food industry stakeholders</p>
+          <p><strong>Pain Points:</strong> Complex partnership decisions, need for data-driven R&D choices, streamlining innovation processes</p>
+          <p><strong>Goals:</strong> Make informed R&D partnership decisions, accelerate innovation, optimize resource allocation</p>
+        </div>
+
+        <div class="modal-section">
+          <h3>Design Strategy & Thought Process</h3>
+          <p>For Puratos, I focused on creating a clean, scientific aesthetic that communicates precision and innovation. The design approach emphasized clarity and functionality, using a structured layout that mirrors scientific methodology while maintaining visual appeal for business stakeholders.</p>
+          <p><strong>Key Design Principles:</strong></p>
+          <ul>
+            <li>Clean, scientific interface design prioritizing usability</li>
+            <li>Structured information hierarchy for complex decision-making</li>
+            <li>Professional color palette reflecting food industry standards</li>
+            <li>Visual representations of decision trees and data flows</li>
+          </ul>
+        </div>
+
+        <div class="modal-section">
+          <h3>Design Showcase</h3>
+          <div class="design-showcase">
+            <div class="design-category">
+              <h4>Web Tool Interface</h4>
+              <div class="design-images">
+                <div class="placeholder">Decision Tool UI</div>
+                <div class="placeholder">Dashboard</div>
+                <div class="placeholder">Input Forms</div>
+              </div>
+            </div>
+            <div class="design-category">
+              <h4>Decision Tree Visualizations</h4>
+              <div class="design-images">
+                <div class="placeholder">Flow Diagram</div>
+                <div class="placeholder">Process Map</div>
+                <div class="placeholder">Results View</div>
+              </div>
+            </div>
+            <div class="design-category">
+              <h4>Presentation Materials</h4>
+              <div class="design-images">
+                <div class="placeholder">Project Slides</div>
+                <div class="placeholder">Demo Materials</div>
+                <div class="placeholder">Technical Docs</div>
+              </div>
+            </div>
+            <div class="design-category">
+              <h4>Website Banners</h4>
+              <div class="design-images">
+                <div class="placeholder">Hero Banner</div>
+                <div class="placeholder">Feature Highlight</div>
+                <div class="placeholder">CTA Section</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 4: Personal Projects -->
+  <div id="modal4" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>RNNatation </h2>
+        <span class="close" onclick="closeModal('modal4')">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="modal-section">
+          <h3>Project Overview</h3>
+          <p>My personal design projects span various creative ventures, from social media campaigns for local events to merchandise design for student organizations. These projects allow me to experiment with different styles and approaches while solving real-world design challenges.</p>
+        </div>
+
+        <div class="modal-section">
+          <h3>Target Audience & Demographics</h3>
+          <p><strong>Primary Audience:</strong> Students, young professionals, local community members, event attendees</p>
+          <p><strong>Demographics:</strong> Ages 18-35, social media active users, community-engaged individuals</p>
+          <p><strong>Pain Points:</strong> Need for eye-catching event promotion, memorable branding, engaging social content</p>
+          <p><strong>Goals:</strong> Increase event attendance, build brand recognition, create shareable content</p>
+        </div>
+
+        <div class="modal-section">
+          <h3>Design Strategy & Thought Process</h3>
+          <p>For personal projects, I explore bold, creative approaches that push boundaries while maintaining clear communication. Each project allows me to test new design trends, color combinations, and layout techniques, creating a diverse portfolio that demonstrates versatility and creative problem-solving.</p>
+          <p><strong>Key Design Principles:</strong></p>
+          <ul>
+            <li>Bold, attention-grabbing visuals for social media</li>
+            <li>Trendy design elements that appeal to younger demographics</li>
+            <li>Versatile designs that work across multiple platforms</li>
+            <li>Creative experimentation with typography and color</li>
+          </ul>
+        </div>
+
+        <div class="modal-section">
+          <h3>Design Showcase</h3>
+          <div class="design-showcase">
+            <div class="design-category">
+              <h4>Social Media Campaigns</h4>
+              <div class="design-images">
+                <div class="placeholder">Instagram Posts</div>
+                <div class="placeholder">Story Templates</div>
+                <div class="placeholder">Facebook Events</div>
+              </div>
+            </div>
+            <div class="design-category">
+              <h4>Event Flyers</h4>
+              <div class="design-images">
+                <div class="placeholder">Concert Flyer</div>
+                <div class="placeholder">Workshop Promo</div>
+                <div class="placeholder">Meetup Design</div>
+              </div>
+            </div>
+            <div class="design-category">
+              <h4>Merchandise Design</h4>
+              <div class="design-images">
+                <div class="placeholder">T-shirt Design</div>
+                <div class="placeholder">Sticker Pack</div>
+                <div class="placeholder">Tote Bag</div>
+              </div>
+            </div>
+            <div class="design-category">
+              <h4>Personal Branding</h4>
+              <div class="design-images">
+                <div class="placeholder">Logo Design</div>
+                <div class="placeholder">Business Cards</div>
+                <div class="placeholder">Portfolio Layout</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Modal Functions
+    function openModal(modalId) {
+      document.getElementById(modalId).style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+    // Close modal when clicking outside of it
+    window.onclick = function(event) {
+      if (event.target.classList.contains('modal')) {
+        event.target.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    }
+
+    // Theme Toggle
+    document.getElementById('theme-toggle').addEventListener('click', function() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        const modals = document.querySelectorAll('.modal');
+        modals.forEach(modal => {
+          if (modal.style.display === 'block') {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>
