@@ -145,22 +145,24 @@
     /* Company Grid */
     .company-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));  /* was: 280px */
-      gap: 30px;                   /* was: 25px */
-      margin-top: 40px;   
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));  /* was: 320px */
+      gap: 40px;                    /* was: 30px */
+      margin-top: 50px;             /* was: 40px */
+      justify-content: center;      /* NEW LINE */
+      align-items: center;          /* NEW LINE */
     }
-
+    
     .company-card {
       background-color: var(--bg-color);
       border: 2px solid var(--accent-color);
-      padding: 40px 25px; 
+      padding: 50px 35px;           /* was: 40px 25px */
       border-radius: 12px;
       cursor: pointer;
       transition: all 0.3s ease;
       backdrop-filter: blur(6px);
       position: relative;
       text-align: center;
-      min-height: 140px;    
+      min-height: 180px;            /* was: 140px */
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -182,8 +184,8 @@
     }
 
     .company-logo {
-      width: 70px;  
-      height: 70px;  
+      width: 80px;                  /* was: 70px */
+      height: 80px;                 /* was: 70px */
       border-radius: 8px;
       object-fit: contain;
       background-color: white;
