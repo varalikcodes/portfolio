@@ -116,7 +116,7 @@
     }
 
     /* Main Content */
-    .content-section {
+   .content-section {
       background-color: var(--secondary-bg);
       padding: 50px 60px 40px 60px;    /* was: 50px 60px - added specific bottom padding */
       max-width: 1400px;
@@ -133,6 +133,7 @@
       min-height: 500px;               /* was: 600px */
     }
 
+
     h2 {
       color: var(--accent-color);
       border-bottom: 1px solid var(--accent-color);
@@ -142,7 +143,7 @@
     }
 
     /* Company Grid */
-    .company-grid {
+   .company-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
       gap: 40px;
@@ -151,17 +152,18 @@
       justify-content: center;
       align-items: center;
     }
+
     .company-card {
       background-color: var(--bg-color);
       border: 2px solid var(--accent-color);
-      padding: 50px 35px;           /* was: 40px 25px */
+      padding: 40px 25px; 
       border-radius: 12px;
       cursor: pointer;
       transition: all 0.3s ease;
       backdrop-filter: blur(6px);
       position: relative;
       text-align: center;
-      min-height: 180px;            /* was: 140px */
+      min-height: 140px;    
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -183,8 +185,8 @@
     }
 
     .company-logo {
-      width: 80px;                  /* was: 70px */
-      height: 80px;                 /* was: 70px */
+      width: 70px;  
+      height: 70px;  
       border-radius: 8px;
       object-fit: contain;
       background-color: white;
@@ -362,13 +364,13 @@
         grid-template-columns: 1fr;
         gap: 25px;
       }
-    
+
       .content-section {
         width: 95%;
         padding: 30px 25px 25px 25px;  /* Reduced bottom padding for mobile */
         min-height: 400px;             /* Smaller min-height for mobile */
       }
-
+    
       .company-logo {
         width: 50px;
         height: 50px;
