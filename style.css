@@ -69,7 +69,6 @@ header {
   align-items: center;
 }
 
-
 .terminal-title {
   font-size: 28px;
   color: var(--accent-color);
@@ -138,7 +137,7 @@ h2 {
 }
 
 /* Experience / Jobs */
-.job, .project {
+.job {
   margin-bottom: 20px;
 }
 
@@ -152,190 +151,7 @@ h2 {
   text-decoration: underline;
 }
 
-/* Projects */
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-}
-
-.project {
-  background-color: var(--bg-color);
-  border: 1px solid var(--accent-color);
-  padding: 15px;
-  border-radius: 8px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  backdrop-filter: blur(6px);
-}
-
-.project:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 10px var(--accent-color);
-}
-
-.project a {
-  display: inline-flex;
-  align-items: center;
-  color: var(--accent-color);
-  margin-top: 10px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.project a:hover {
-  text-decoration: underline;
-}
-
-.github-icon {
-  height: 16px;
-  vertical-align: middle;
-  margin-right: 6px;
-  filter: invert(0%);
-}
-
-[data-theme='dark'] .github-icon {
-  filter: invert(100%);
-}
-.certification-item {
-  background-color: var(--secondary-bg);
-  padding: 20px;
-  border-radius: 12px;
-  margin-bottom: 30px;
-  text-align: left;
-  transition: transform 0.3s ease;
-}
-
-
-.certification-item:hover {
-  transform: translateY(-5px);
-}
-
-.certification-item ul {
-  list-style-type: disc;
-  padding-left: 20px;
-  margin-top: 10px;
-}
-
-.credential-button {
-  display: inline-block;
-  margin-top: 12px;
-  background-color: var(--accent-color);
-  color: white;
-  padding: 8px 16px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s;
-}
-
-.credential-button:hover {
-  background-color: #b0005a; /* for light mode */
-}
-
-[data-theme='dark'] .credential-button:hover {
-  background-color: #e066e6; /* for dark mode */
-}
-
-
-.github-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-left: 12px;
-  font-weight: 600;
-  color: var(--accent-color);
-  text-decoration: none;
-  font-size: 14px;
-  transition: color 0.3s;
-}
-
-.github-link:hover {
-  text-decoration: underline;
-  color: #b0005a; /* slightly deeper pink in light mode */
-}
-
-[data-theme='dark'] .github-link:hover {
-  color: #ff99ff; /* softer glow hover for dark mode */
-}
-
-.fixed-credential-button {
-  position: fixed;
-  bottom: 20px;
-  left: 20px; /* ← move from right to left */
-  z-index: 1000;
-  background-color: var(--accent-color);
-  color: white;
-  padding: 12px 20px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: bold;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-  transition: background-color 0.3s ease, opacity 0.3s ease;
-  opacity: 0; /* Hidden by default */
-  pointer-events: none; /* Disable clicks when hidden */
-}
-
-
-.fixed-credential-button:hover {
-  background-color: #b0005a; /* for light mode */
-}
-
-[data-theme='dark'] .fixed-credential-button:hover {
-  background-color: #e066e6; /* for dark mode */
-}
-.github-icon {
-  width: 18px;
-  height: 18px;
-  filter: invert(0%);
-  transition: filter 0.3s;
-}
-
-[data-theme='dark'] .github-icon {
-  filter: invert(100%);
-}
-
-.website-icon {
-  width: 36px;
-  height: 36px;
-  filter: invert(0%);
-  transition: filter 0.3s;
-}
-
-[data-theme='dark'] .website-icon {
-  filter: invert(100%);
-}
-
-
-.about-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-top: 40px;
-}
-
-.about-container {
-  display: flex;
-  align-items: flex-start;
-  gap: 30px;
-  max-width: 1000px;
-  padding: 20px;
-}
-
-.about-photo img {
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  border: 3px solid var(--accent-color);
-  object-fit: cover;
-  box-shadow: 0 0 12px var(--accent-color);
-  background-color: var(--bg-color);
-}
-
-.about-box {
-  flex: 1;
-  margin-top: 20px;
-}
-
-/* ===== ENHANCED PROJECTS SECTION - ADD TO YOUR STYLE.CSS ===== */
+/* ===== ENHANCED PROJECTS SECTION ===== */
 
 /* Terminal cursor effect on Projects h2 */
 .projects h2::after {
@@ -390,6 +206,22 @@ h2 {
   gap: 25px;
 }
 
+/* Enhanced projects */
+.project {
+  background-color: var(--bg-color);
+  border: 1px solid var(--accent-color);
+  padding: 20px;
+  border-radius: 8px;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(6px);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: projectLoad 0.6s ease forwards;
+}
+
 /* Terminal window styling for projects */
 .project::before {
   content: '●●●';
@@ -400,17 +232,6 @@ h2 {
   font-size: 8px;
   letter-spacing: 2px;
   opacity: 0.6;
-}
-
-.project {
-  background-color: var(--bg-color);
-  border: 1px solid var(--accent-color);
-  padding: 20px;
-  border-radius: 8px;
-  transition: all 0.4s ease;
-  backdrop-filter: blur(6px);
-  position: relative;
-  overflow: hidden;
 }
 
 .project:hover {
@@ -476,6 +297,20 @@ h2 {
   transform: translateY(-2px);
 }
 
+/* Icon styling */
+.github-icon {
+  width: 18px;
+  height: 18px;
+  filter: invert(0%);
+  transition: filter 0.3s;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+[data-theme='dark'] .github-icon {
+  filter: invert(100%);
+}
+
 /* Enhanced icon styling for project links */
 .project a:hover .github-icon {
   filter: invert(100%);
@@ -486,12 +321,6 @@ h2 {
 }
 
 /* Loading animation for projects */
-.project {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: projectLoad 0.6s ease forwards;
-}
-
 .project:nth-child(2) { animation-delay: 0.1s; }
 .project:nth-child(3) { animation-delay: 0.2s; }
 .project:nth-child(4) { animation-delay: 0.3s; }
@@ -529,18 +358,134 @@ h2 {
   display: none;
 }
 
-/* Responsive design additions */
-@media (max-width: 768px) {
-  .project-filters {
-    justify-content: flex-start;
-  }
-  
-  .filter-btn {
-    font-size: 10px;
-    padding: 6px 12px;
-  }
+/* ===== OTHER SECTIONS (unchanged) ===== */
+
+.certification-item {
+  background-color: var(--secondary-bg);
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  text-align: left;
+  transition: transform 0.3s ease;
 }
 
+.certification-item:hover {
+  transform: translateY(-5px);
+}
+
+.certification-item ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+.credential-button {
+  display: inline-block;
+  margin-top: 12px;
+  background-color: var(--accent-color);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.credential-button:hover {
+  background-color: #b0005a;
+}
+
+[data-theme='dark'] .credential-button:hover {
+  background-color: #e066e6;
+}
+
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 12px;
+  font-weight: 600;
+  color: var(--accent-color);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.github-link:hover {
+  text-decoration: underline;
+  color: #b0005a;
+}
+
+[data-theme='dark'] .github-link:hover {
+  color: #ff99ff;
+}
+
+.fixed-credential-button {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+  background-color: var(--accent-color);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.fixed-credential-button:hover {
+  background-color: #b0005a;
+}
+
+[data-theme='dark'] .fixed-credential-button:hover {
+  background-color: #e066e6;
+}
+
+.website-icon {
+  width: 36px;
+  height: 36px;
+  filter: invert(0%);
+  transition: filter 0.3s;
+}
+
+[data-theme='dark'] .website-icon {
+  filter: invert(100%);
+}
+
+.about-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.about-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  max-width: 1000px;
+  padding: 20px;
+}
+
+.about-photo img {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 3px solid var(--accent-color);
+  object-fit: cover;
+  box-shadow: 0 0 12px var(--accent-color);
+  background-color: var(--bg-color);
+}
+
+.about-box {
+  flex: 1;
+  margin-top: 20px;
+}
+
+/* Responsive design */
 @media (max-width: 768px) {
   .about-container {
     flex-direction: column;
@@ -551,7 +496,18 @@ h2 {
   .about-box {
     margin-top: 10px;
   }
-  .design-gallery {
+
+  .project-filters {
+    justify-content: flex-start;
+  }
+  
+  .filter-btn {
+    font-size: 10px;
+    padding: 6px 12px;
+  }
+}
+
+.design-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
@@ -568,6 +524,4 @@ h2 {
 .design-gallery img:hover {
   transform: scale(1.03);
   box-shadow: 0 0 15px var(--accent-color);
-}
-
 }
