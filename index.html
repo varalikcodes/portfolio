@@ -139,89 +139,97 @@
 </section>
 
   
-  <section class="projects">
-  <h2>Projects</h2>
-  <div class="project-grid">
+ <section class="projects">
+        <h2>Projects</h2>
+        
+        <div class="project-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="internship">Internships</button>
+            <button class="filter-btn" data-filter="web-dev">Web Dev</button>
+            <button class="filter-btn" data-filter="ai-ml">AI/ML</button>
+            <button class="filter-btn" data-filter="design">Design</button>
+        </div>
+        
+        <div class="project-grid">
+            <div class="project" data-category="internship">
+                <h3>Enterprise Automation Workflow System</h3>
+                <p>Designed and implemented a serverless automation pipeline using AWS Lambda, RDS, and SES during my time at <strong>FreeAxez</strong>. Built event-driven architecture for real-time data processing, automated notification systems, and integrated third-party APIs. Gained hands-on experience with cloud infrastructure and scalable system design.</p>
+                <p><strong>Tech Stack:</strong> AWS Lambda, Python, AWS RDS, AWS SES</p>
+            </div>
+            
+            <div class="project" data-category="internship">
+                <h3>Full-Stack Inventory Management System</h3>
+                <p>Developed a comprehensive data management application using Node.js and PostgreSQL during my <strong>FreeAxez internship</strong>. Implemented complex algorithms for hierarchical data relationships, Excel file processing, and dynamic calculation engines. Features included database optimization, API design, and responsive front-end interfaces.</p>
+                <p><strong>Tech Stack:</strong> Node.js, PostgreSQL, JavaScript, HTML/CSS</p>
+            </div>
 
-    <div class="project">
-      <h3>Enterprise Automation Workflow System</h3>
-      <p>Designed and implemented a serverless automation pipeline using AWS Lambda, RDS, and SES during my time at <strong>FreeAxez</strong>. Built event-driven architecture for real-time data processing, automated notification systems, and integrated third-party APIs. Gained hands-on experience with cloud infrastructure and scalable system design.</p>
-      <p><strong>Tech Stack:</strong> AWS Lambda, Python, AWS RDS, AWS SES</p>
-    </div>
-      
-    <div class="project">
-      <h3>Full-Stack Inventory Management System</h3>
-      <p>Developed a comprehensive data management application using Node.js and PostgreSQL during my <strong>FreeAxez internship</strong>. Implemented complex algorithms for hierarchical data relationships, Excel file processing, and dynamic calculation engines. Features included database optimization, API design, and responsive front-end interfaces.</p>
-       <p><strong>Tech Stack:</strong> Node.js, PostgreSQL, JavaScript, HTML/CSS</p>
-    </div>
+            <div class="project" data-category="internship">
+                <h3>Zeus Careers Website Redesign</h3>
+                <p>Led a complete UX/UI redesign of Zeus Careers website during my internship at <strong>Best Logic Staffing</strong>. Created modern, responsive interfaces with improved user experience, streamlined job application processes, and enhanced visual design. Delivered both Figma prototypes and fully functional web implementation.</p>
+                <p><strong>Tech Stack:</strong> HTML/CSS, JavaScript, Figma, Responsive Design</p>
+                <a href="https://www.figma.com/design/vYLrQS8QDEbEVNuvNmHSSm/Re-design-of-Canva" target="_blank">
+                    <img src="icons/figma.png" alt="Figma" class="github-icon" /> Figma
+                </a>
+                <a href="https://github.com/varalikcodes/zeus-redesign" target="_blank">
+                    <img src="icons/github.png" alt="GitHub" class="github-icon" /> GitHub
+                </a>
+                <a href="https://zeus-redesign.onrender.com/#jobs" target="_blank">
+                    <img src="icons/website-1.png" alt="Live Site" class="github-icon" /> Live Site
+                </a>
+            </div>
+            
+            <div class="project" data-category="web-dev">
+                <h3>Puratos Go-No-Go Decision Tool</h3>
+                <p>A web-based decision system built during my externship with Puratos to evaluate strategic R&D partnerships in food innovation. Features a modular decision tree and streamlined UI.</p>
+                <p><strong>Tech Stack:</strong> HTML/CSS, JavaScript, Node.js, Decision Trees</p>
+                <a href="https://github.com/varalikcodes/puratosr-d" target="_blank">
+                    <img src="icons/github.png" alt="GitHub" class="github-icon" /> GitHub
+                </a>
+                <a href="https://puratosr-d.onrender.com" target="_blank">
+                    <img src="icons/website-1.png" alt="Live Site" class="github-icon" /> Live Site
+                </a>
+            </div>
 
-    <div class="project">
-      <h3>Zeus Careers Website Redesign</h3>
-      <p>Led a complete UX/UI redesign of Zeus Careers website during my internship at <strong>Best Logic Staffing</strong>. Created modern, responsive interfaces with improved user experience, streamlined job application processes, and enhanced visual design. Delivered both Figma prototypes and fully functional web implementation.</p>
-      <p> <strong>Tech Stack:</strong> HTML/CSS, JavaScript, Figma, Responsive Design</p>
-      <a href="https://www.figma.com/design/vYLrQS8QDEbEVNuvNmHSSm/Re-design-of-Canva" target="_blank">
-        <img src="icons/figma.png" alt="Figma" class="github-icon" /> View on Figma
-      </a>
-      <a href="https://github.com/varalikcodes/zeus-redesign" target="_blank">
-        <img src="icons/github.png" alt="GitHub" class="github-icon" /> View on GitHub
-      </a>
-      <a href="https://zeus-redesign.onrender.com/#jobs" target="_blank">
-        <img src="icons/website-1.png" alt="Live Site" class="github-icon" /> View Live Site
-      </a>
-    </div>
-    
-    <div class="project">
-      <h3>Puratos Go-No-Go Decision Tool</h3>
-      <p>A web-based decision system built during my externship with Puratos to evaluate strategic R&D partnerships in food innovation. Features a modular decision tree and streamlined UI.</p>
-      <p> <strong>Tech Stack:</strong> HTML/CSS, JavaScript, Node.js, Decision Trees</p>
-      <a href="https://github.com/varalikcodes/puratosr-d" target="_blank">
-        <img src="icons/github.png" alt="GitHub" class="github-icon" /> View on GitHub
-      </a>
-      <a href="https://puratosr-d.onrender.com" target="_blank">
-        <img src="icons/website-1.png" alt="Live Site" class="github-icon" /> View Live Site
-      </a>
-    </div>
+            <div class="project" data-category="ai-ml">
+                <h3>Machine Learning & Personalization</h3>
+                <p>Designed a personalized fanfiction platform with a custom chatbot tailored to Draco/Hermione fanfiction (Star-Crossed Spells: Draco & Hermione), using the OpenAI API.</p>
+                <p><strong>Tech Stack:</strong> Python, OpenAI API, HTML/CSS, JavaScript</p>
+                <a href="https://github.com/varalikcodes/dramione-chatbot" target="_blank">
+                    <img src="icons/github.png" alt="GitHub" class="github-icon" /> GitHub
+                </a>
+                <a href="https://dramione-chatbot.onrender.com/" target="_blank">
+                    <img src="icons/website-1.png" alt="Live Site" class="github-icon" /> Live Site
+                </a>
+            </div>
+            
+            <div class="project" data-category="ai-ml">
+                <h3>AI-Powered Personal Assistant</h3>
+                <p>Developed a Python-based voice assistant with NLP for speech recognition and task automation, integrating a Weather API.</p>
+                <p><strong>Tech Stack:</strong> Python, NLP, Speech Recognition, Weather API</p>
+                <a href="https://github.com/varalikcodes/ai-virtual-assistant" target="_blank">
+                    <img src="icons/github.png" alt="GitHub" class="github-icon" /> GitHub
+                </a>
+            </div>
 
-    <div class="project">
-      <h3>Machine Learning & Personalization</h3>
-      <p>Designed a personalized fanfiction platform with a custom chatbot tailored to Draco/Hermione fanfiction (Star-Crossed Spells: Draco & Hermione), using the OpenAI API.</p>
-      <p> <strong>Tech Stack:</strong> Python, OpenAI API, HTML/CSS, JavaScript</p>
-      <a href="https://github.com/varalikcodes/dramione-chatbot" target="_blank">
-        <img src="icons/github.png" alt="GitHub" class="github-icon" /> View on GitHub
-      </a>
-      <a href="https://dramione-chatbot.onrender.com/" target="_blank">
-        <img src="icons/website-1.png" alt="Live Site" class="github-icon" /> View Live Site
-      </a>
-    </div>
-    
-    <div class="project">
-      <h3>AI-Powered Personal Assistant</h3>
-      <p>Developed a Python-based voice assistant with NLP for speech recognition and task automation, integrating a Weather API.</p>
-      <p> <strong>Tech Stack:</strong> Python, NLP, Speech Recognition, Weather API</p>
-      <a href="https://github.com/varalikcodes/ai-virtual-assistant" target="_blank">
-        <img src="icons/github.png" alt="GitHub" class="github-icon" /> View on GitHub
-      </a>
-    </div>
+            <div class="project" data-category="design">
+                <h3>Canvas Redesign</h3>
+                <p>Led the redesign of the Rutgers Canvas learning system, creating user-friendly wireframes and prototypes in Figma and Canva to streamline navigation, improve calendar functionality, and eliminate app redundancies.</p>
+                <p><strong>Tech Stack:</strong> Figma, Canva, UX/UI Design, Wireframing</p>
+                <a href="https://www.figma.com/design/vYLrQS8QDEbEVNuvNmHSSm/Re-design-of-Canva" target="_blank">
+                    <img src="icons/figma.png" alt="Figma" class="github-icon" /> Figma
+                </a>
+            </div>
 
-    <div class="project">
-      <h3>Canvas Redesign</h3>
-      <p>Led the redesign of the Rutgers Canvas learning system, creating user-friendly wireframes and prototypes in Figma and Canva to streamline navigation, improve calendar functionality, and eliminate app redundancies.</p>
-      <p> <strong>Tech Stack:</strong> Figma, Canva, UX/UI Design, Wireframing</p>      <a href="https://www.figma.com/design/vYLrQS8QDEbEVNuvNmHSSm/Re-design-of-Canva" target="_blank">
-        <img src="icons/figma.png" alt="Figma" class="github-icon" /> View on Figma
-      </a>
-    </div>
-
-    <div class="project">
-      <h3>Immigration Data Analysis</h3>
-      <p>Analyzed OECD immigration data (2000–2021) to uncover key insights into global migration trends. Informed predictive models by scrutinizing data on immigrant origins and inflow patterns across diverse countries.</p>
-      <p> <strong>Tech Stack:</strong> Python, Pandas, Data Analysis, Matplotlib</p>
-      <a href="https://github.com/varalikcodes/immigration-analysis" target="_blank">
-        <img src="icons/github.png" alt="GitHub" class="github-icon" /> View on GitHub
-      </a>
-    </div>
-   
-  </div>
-</section>
+            <div class="project" data-category="ai-ml">
+                <h3>Immigration Data Analysis</h3>
+                <p>Analyzed OECD immigration data (2000–2021) to uncover key insights into global migration trends. Informed predictive models by scrutinizing data on immigrant origins and inflow patterns across diverse countries.</p>
+                <p><strong>Tech Stack:</strong> Python, Pandas, Data Analysis, Matplotlib</p>
+                <a href="https://github.com/varalikcodes/immigration-analysis" target="_blank">
+                    <img src="icons/github.png" alt="GitHub" class="github-icon" /> GitHub
+                </a>
+            </div>
+        </div>
+    </section>
 
 
   <a href="designs.html" class="fixed-credential-button">Studio Varalika</a>
@@ -230,6 +238,55 @@
 
 <script src="script.js"></script>
   <script>
+    const themeToggle = document.getElementById("theme-toggle");
+        const root = document.documentElement;
+
+        themeToggle.addEventListener("click", () => {
+            const current = root.getAttribute("data-theme");
+            root.setAttribute("data-theme", current === "dark" ? "light" : "dark");
+        });
+
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projects = document.querySelectorAll('.project');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                const filter = btn.dataset.filter;
+
+                projects.forEach((project, index) => {
+                    if (filter === 'all' || project.dataset.category === filter) {
+                        project.classList.remove('hidden');
+                        // Stagger the re-animation
+                        project.style.animation = `projectLoad 0.6s ease forwards`;
+                        project.style.animationDelay = `${index * 0.1}s`;
+                    } else {
+                        project.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // Terminal typing effect enhancement
+        document.addEventListener("DOMContentLoaded", function() {
+            // Add subtle terminal-like interactions
+            const projects = document.querySelectorAll('.project');
+            
+            projects.forEach(project => {
+                project.addEventListener('mouseenter', () => {
+                    project.style.transform = 'translateY(-5px) scale(1.02)';
+                });
+                
+                project.addEventListener('mouseleave', () => {
+                    project.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
   const button = document.querySelector('.fixed-credential-button');
 
   window.addEventListener('scroll', () => {
