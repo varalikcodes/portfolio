@@ -335,6 +335,212 @@ h2 {
   margin-top: 20px;
 }
 
+/* ===== ENHANCED PROJECTS SECTION - ADD TO YOUR STYLE.CSS ===== */
+
+/* Terminal cursor effect on Projects h2 */
+.projects h2::after {
+  content: '█';
+  color: var(--accent-color);
+  animation: terminalBlink 1.5s infinite;
+  margin-left: 8px;
+}
+
+@keyframes terminalBlink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Filter tabs with terminal styling */
+.project-filters {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.filter-btn {
+  background: var(--bg-color);
+  color: var(--text-color);
+  border: 1px solid var(--accent-color);
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  backdrop-filter: blur(6px);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--accent-color);
+  color: white;
+  box-shadow: 0 0 10px var(--accent-color);
+  text-shadow: 0 0 5px rgba(255,255,255,0.8);
+}
+
+/* Enhanced project grid */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+/* Terminal window styling for projects */
+.project::before {
+  content: '●●●';
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  color: var(--accent-color);
+  font-size: 8px;
+  letter-spacing: 2px;
+  opacity: 0.6;
+}
+
+.project {
+  background-color: var(--bg-color);
+  border: 1px solid var(--accent-color);
+  padding: 20px;
+  border-radius: 8px;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(6px);
+  position: relative;
+  overflow: hidden;
+}
+
+.project:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 25px var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+/* Project headers with terminal prompt styling */
+.project h3 {
+  color: var(--accent-color);
+  margin: 0 0 12px 0;
+  font-size: 16px;
+  text-shadow: 0 0 5px var(--accent-color);
+  position: relative;
+  padding-left: 15px;
+}
+
+.project h3::before {
+  content: '>';
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+/* Enhanced tech stack styling */
+.project p:last-of-type {
+  margin-bottom: 15px;
+  padding: 8px 12px;
+  background: rgba(0,0,0,0.05);
+  border-radius: 4px;
+  border-left: 3px solid var(--accent-color);
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+}
+
+[data-theme='dark'] .project p:last-of-type {
+  background: rgba(255,255,255,0.05);
+}
+
+/* Enhanced link styling */
+.project a {
+  display: inline-flex;
+  align-items: center;
+  color: var(--accent-color);
+  margin: 8px 12px 0 0;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 6px 10px;
+  border: 1px solid var(--accent-color);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.project a:hover {
+  background: var(--accent-color);
+  color: white;
+  text-shadow: 0 0 5px rgba(255,255,255,0.8);
+  transform: translateY(-2px);
+}
+
+/* Enhanced icon styling for project links */
+.project a:hover .github-icon {
+  filter: invert(100%);
+}
+
+[data-theme='dark'] .project a:hover .github-icon {
+  filter: invert(0%);
+}
+
+/* Loading animation for projects */
+.project {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: projectLoad 0.6s ease forwards;
+}
+
+.project:nth-child(2) { animation-delay: 0.1s; }
+.project:nth-child(3) { animation-delay: 0.2s; }
+.project:nth-child(4) { animation-delay: 0.3s; }
+.project:nth-child(5) { animation-delay: 0.4s; }
+.project:nth-child(6) { animation-delay: 0.5s; }
+.project:nth-child(7) { animation-delay: 0.6s; }
+.project:nth-child(8) { animation-delay: 0.7s; }
+
+@keyframes projectLoad {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Category indicators */
+.project[data-category="internship"] {
+  border-left: 4px solid #48bb78;
+}
+
+.project[data-category="web-dev"] {
+  border-left: 4px solid #4299e1;
+}
+
+.project[data-category="ai-ml"] {
+  border-left: 4px solid #9f7aea;
+}
+
+.project[data-category="design"] {
+  border-left: 4px solid #ed8936;
+}
+
+/* Hidden class for filtering */
+.hidden {
+  display: none;
+}
+
+/* Responsive design additions */
+@media (max-width: 768px) {
+  .project-filters {
+    justify-content: flex-start;
+  }
+  
+  .filter-btn {
+    font-size: 10px;
+    padding: 6px 12px;
+  }
+}
+
 @media (max-width: 768px) {
   .about-container {
     flex-direction: column;
