@@ -65,7 +65,8 @@
     }
 
     .terminal-title {
-      font-size: 28px;
+      font-size: 32px;
+      line-height: 1.2;  
       color: var(--accent-color);
       margin: 0;
       text-shadow: 0 0 5px var(--accent-color), 0 0 10px var(--accent-color);
@@ -115,10 +116,10 @@
     }
 
     /* Main Content */
-    .content-section {
+    content-section {
       background-color: var(--secondary-bg);
-      padding: 40px 50px;
-      max-width: 1200px;
+      padding: 50px 60px;
+      max-width: 1400px;
       margin: 0 auto;
       border-left: 3px solid var(--accent-color);
       border-radius: 8px;
@@ -128,8 +129,10 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 90%;
+      width: 95%;
+      min-height: 600px;
     }
+
 
     h2 {
       color: var(--accent-color);
@@ -142,22 +145,22 @@
     /* Company Grid */
     .company-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-      margin-top: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));  /* was: 280px */
+      gap: 30px;                   /* was: 25px */
+      margin-top: 40px;   
     }
 
     .company-card {
       background-color: var(--bg-color);
       border: 2px solid var(--accent-color);
-      padding: 30px 20px;
+      padding: 40px 25px; 
       border-radius: 12px;
       cursor: pointer;
       transition: all 0.3s ease;
       backdrop-filter: blur(6px);
       position: relative;
       text-align: center;
-      min-height: 120px;
+      min-height: 140px;    
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -179,8 +182,8 @@
     }
 
     .company-logo {
-      width: 60px;
-      height: 60px;
+      width: 70px;  
+      width: 70px;  
       border-radius: 8px;
       object-fit: contain;
       background-color: white;
@@ -356,8 +359,14 @@
     @media (max-width: 768px) {
       .company-grid {
         grid-template-columns: 1fr;
+        gap: 25px;
       }
-      
+
+      .content-section {
+        width: 95%;                /* NEW LINE */
+        padding: 30px 25px;        /* NEW LINE */
+      }
+    
       .company-logo {
         width: 50px;
         height: 50px;
@@ -386,8 +395,8 @@
       }
       
       .terminal-title {
-        font-size: 20px;
-      }
+      font-size: 24px;           /* was: 20px */
+    }
     }
   </style>
 </head>
