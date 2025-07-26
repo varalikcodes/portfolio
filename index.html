@@ -238,57 +238,6 @@
 
 <script src="script.js"></script>
   <script>
-    const themeToggle = document.getElementById("theme-toggle");
-        const root = document.documentElement;
-
-        themeToggle.addEventListener("click", () => {
-            const current = root.getAttribute("data-theme");
-            root.setAttribute("data-theme", current === "dark" ? "light" : "dark");
-        });
-
-        // Filter functionality
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const projects = document.querySelectorAll('.project');
-
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Remove active class from all buttons
-                filterBtns.forEach(b => b.classList.remove('active'));
-                // Add active class to clicked button
-                btn.classList.add('active');
-
-                const filter = btn.dataset.filter;
-
-                projects.forEach((project, index) => {
-                    if (filter === 'all' || project.dataset.category === filter) {
-                        project.classList.remove('hidden');
-                        // Stagger the re-animation
-                        project.style.animation = `projectLoad 0.6s ease forwards`;
-                        project.style.animationDelay = `${index * 0.1}s`;
-                    } else {
-                        project.classList.add('hidden');
-                    }
-                });
-            });
-        });
-
-        // Terminal typing effect enhancement
-        document.addEventListener("DOMContentLoaded", function() {
-            // Add subtle terminal-like interactions
-            const projects = document.querySelectorAll('.project');
-            
-            projects.forEach(project => {
-                project.addEventListener('mouseenter', () => {
-                    project.style.transform = 'translateY(-5px) scale(1.02)';
-                });
-                
-                project.addEventListener('mouseleave', () => {
-                    project.style.transform = 'translateY(0) scale(1)';
-                });
-            });
-        });
-  const button = document.querySelector('.fixed-credential-button');
-
   window.addEventListener('scroll', () => {
     if (window.scrollY > 100) {
       button.style.opacity = '1';
