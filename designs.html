@@ -209,6 +209,31 @@
       margin-top: 15px;
     }
 
+    /* Company-specific color schemes */
+    .modal.zeuscareers {
+      --company-primary: #000000;
+      --company-secondary: #333333;
+      --company-accent: #666666;
+    }
+
+    .modal.rnnation {
+      --company-primary: #dc2626;
+      --company-secondary: #1e40af;
+      --company-accent: #ffffff;
+    }
+
+    .modal.passionatesoccercoach {
+      --company-primary: #1e40af;
+      --company-secondary: #ec4899;
+      --company-accent: #ffffff;
+    }
+
+    .modal.bestlogic {
+      --company-primary: #6b7280;
+      --company-secondary: #fbbf24;
+      --company-accent: #f9fafb;
+    }
+
     /* Modal Styles */
     .modal {
       display: none;
@@ -226,7 +251,7 @@
       background-color: var(--bg-color);
       margin: 2% auto;
       padding: 0;
-      border: 2px solid var(--accent-color);
+      border: 2px solid var(--company-primary);
       border-radius: 15px;
       width: 90%;
       max-width: 900px;
@@ -237,13 +262,14 @@
     }
 
     .modal-header {
-      background-color: var(--accent-color);
+      background: linear-gradient(135deg, var(--company-primary), var(--company-secondary));
       color: white;
       padding: 20px 30px;
       border-radius: 13px 13px 0 0;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
     }
 
     .modal-header h2 {
@@ -251,6 +277,25 @@
       border: none;
       text-shadow: none;
       color: white;
+      flex: 1;
+    }
+
+    .company-website-link {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      opacity: 0.9;
+      margin-right: 20px;
+      padding: 5px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+
+    .company-website-link:hover {
+      opacity: 1;
+      background-color: rgba(255, 255, 255, 0.1);
+      transform: translateY(-1px);
     }
 
     .close {
@@ -274,11 +319,11 @@
     }
 
     .modal-section h3 {
-      color: var(--accent-color);
-      border-bottom: 1px solid var(--accent-color);
+      color: var(--company-primary);
+      border-bottom: 1px solid var(--company-primary);
       padding-bottom: 5px;
       margin-bottom: 15px;
-      text-shadow: 0 0 3px var(--accent-color);
+      text-shadow: 0 0 3px var(--company-secondary);
     }
 
     .design-showcase {
@@ -292,11 +337,11 @@
       background-color: var(--secondary-bg);
       padding: 15px;
       border-radius: 8px;
-      border: 1px solid var(--accent-color);
+      border: 1px solid var(--company-accent);
     }
 
     .design-category h4 {
-      color: var(--accent-color);
+      color: var(--company-primary);
       margin: 0 0 10px 0;
       font-size: 14px;
     }
@@ -310,7 +355,7 @@
     .design-images .placeholder {
       width: 60px;
       height: 60px;
-      background: linear-gradient(135deg, var(--accent-color), #ff99cc);
+      background: linear-gradient(135deg, var(--company-primary), var(--company-secondary));
       border-radius: 6px;
       display: flex;
       align-items: center;
@@ -376,8 +421,8 @@
       <!-- Company 1 -->
       <div class="company-card" onclick="openModal('modal1')">
         <div class="company-header">
-          <img src="logos/bestlogic-logo.png" alt="BestLogic Staffing Logo" class="company-logo">
-          <h3>BestLogic Staffing</h3>
+          <img src="logos/zeuscareers-logo.png" alt="ZeusCareers Logo" class="company-logo">
+          <h3>ZeusCareers</h3>
         </div>
         <div class="click-hint">Click to explore →</div>
       </div>
@@ -385,8 +430,8 @@
       <!-- Company 2 -->
       <div class="company-card" onclick="openModal('modal2')">
         <div class="company-header">
-          <img src="logos/freeaxez-logo.png" alt="FreeAxez Logo" class="company-logo">
-          <h3>FreeAxez</h3>
+          <img src="logos/rnnation-logo.png" alt="RNNation Logo" class="company-logo">
+          <h3>RNNation</h3>
         </div>
         <div class="click-hint">Click to explore →</div>
       </div>
@@ -394,8 +439,8 @@
       <!-- Company 3 -->
       <div class="company-card" onclick="openModal('modal3')">
         <div class="company-header">
-          <img src="logos/puratos-logo.png" alt="Puratos Logo" class="company-logo">
-          <h3>Puratos</h3>
+          <img src="logos/passionatesoccercoach-logo.png" alt="Passionate Soccer Coach Logo" class="company-logo">
+          <h3>Passionate Soccer Coach</h3>
         </div>
         <div class="click-hint">Click to explore →</div>
       </div>
@@ -403,44 +448,44 @@
       <!-- Company 4 -->
       <div class="company-card" onclick="openModal('modal4')">
         <div class="company-header">
-          <img src="logos/personal-logo.png" alt="Personal Brand Logo" class="company-logo">
-          <h3>Personal Projects</h3>
+          <img src="logos/bestlogic-logo.png" alt="BestLogic Staffing Logo" class="company-logo">
+          <h3>BestLogic Staffing</h3>
         </div>
         <div class="click-hint">Click to explore →</div>
       </div>
     </div>
   </section>
 
-  <!-- Modal 1: BestLogic Staffing -->
-  <div id="modal1" class="modal">
+  <!-- Modal 1: ZeusCareers -->
+  <div id="modal1" class="modal zeuscareers">
     <div class="modal-content">
       <div class="modal-header">
-        <h2>BestLogic Staffing</h2>
+        <h2>ZeusCareers</h2>
         <span class="close" onclick="closeModal('modal1')">&times;</span>
       </div>
       <div class="modal-body">
         <div class="modal-section">
           <h3>Company Overview</h3>
-          <p>BestLogic Staffing is a recruitment and staffing company that connects talented professionals with organizations across various industries. They specialize in finding the right fit between candidates and companies, emphasizing both technical skills and cultural alignment.</p>
+          <p>ZeusCareers is a comprehensive job board platform specializing in finance and accounting opportunities. The platform connects job seekers with leading employers across various industries, offering roles in accounting, auditing, financial analysis, and related fields both domestically and internationally.</p>
         </div>
 
         <div class="modal-section">
           <h3>Target Audience & Demographics</h3>
-          <p><strong>Primary Audience:</strong> HR professionals, business owners, and job seekers</p>
-          <p><strong>Demographics:</strong> Ages 25-55, corporate professionals, small to medium business owners</p>
-          <p><strong>Pain Points:</strong> Time-consuming hiring processes, difficulty finding qualified candidates, need for trustworthy recruitment partners</p>
-          <p><strong>Goals:</strong> Streamline hiring, find quality talent quickly, build long-term recruitment relationships</p>
+          <p><strong>Primary Audience:</strong> Finance professionals, accounting specialists, job seekers in financial services</p>
+          <p><strong>Demographics:</strong> Ages 22-55, finance and accounting professionals, career changers, recent graduates</p>
+          <p><strong>Pain Points:</strong> Finding specialized finance roles, navigating complex job markets, connecting with quality employers</p>
+          <p><strong>Goals:</strong> Secure quality finance positions, advance careers, find competitive compensation packages</p>
         </div>
 
         <div class="modal-section">
           <h3>Design Strategy & Thought Process</h3>
-          <p>For BestLogic Staffing, I focused on creating designs that convey professionalism, trustworthiness, and efficiency. The color palette emphasizes corporate blues and greens to inspire confidence, while maintaining approachable elements to appeal to both employers and job seekers.</p>
+          <p>For ZeusCareers, I implemented a clean, professional aesthetic using their signature black and white color scheme. The design emphasizes trust, professionalism, and clarity - essential for a platform connecting finance professionals with employers. I designed a new webpage focusing on user experience and easy navigation.</p>
           <p><strong>Key Design Principles:</strong></p>
           <ul>
-            <li>Professional yet approachable aesthetic</li>
-            <li>Clear, readable typography for business communications</li>
-            <li>Consistent branding across all materials</li>
-            <li>Modern layouts that reflect industry innovation</li>
+            <li>Minimalist black and white design for professional credibility</li>
+            <li>Clean typography and clear hierarchy for easy job browsing</li>
+            <li>User-friendly navigation and search functionality</li>
+            <li>Responsive design for multi-device accessibility</li>
           </ul>
         </div>
 
@@ -448,35 +493,35 @@
           <h3>Design Showcase</h3>
           <div class="design-showcase">
             <div class="design-category">
-              <h4>Logo Design</h4>
+              <h4>Website Design</h4>
               <div class="design-images">
-                <div class="placeholder">Logo V1</div>
-                <div class="placeholder">Logo V2</div>
-                <div class="placeholder">Final Logo</div>
+                <div class="placeholder">Homepage</div>
+                <div class="placeholder">Job Listings</div>
+                <div class="placeholder">Company Pages</div>
               </div>
             </div>
             <div class="design-category">
-              <h4>Brochures & Marketing</h4>
+              <h4>User Interface</h4>
               <div class="design-images">
-                <div class="placeholder">Tri-fold Brochure</div>
-                <div class="placeholder">Service Guide</div>
-                <div class="placeholder">Company Overview</div>
+                <div class="placeholder">Search Bar</div>
+                <div class="placeholder">Filters</div>
+                <div class="placeholder">User Dashboard</div>
               </div>
             </div>
             <div class="design-category">
-              <h4>Digital Assets</h4>
+              <h4>Marketing Materials</h4>
               <div class="design-images">
-                <div class="placeholder">Website Mockup</div>
-                <div class="placeholder">Email Template</div>
-                <div class="placeholder">Social Media Kit</div>
+                <div class="placeholder">Social Media</div>
+                <div class="placeholder">Email Templates</div>
+                <div class="placeholder">Banner Ads</div>
               </div>
             </div>
             <div class="design-category">
-              <h4>Brand Mascot</h4>
+              <h4>Branding Elements</h4>
               <div class="design-images">
-                <div class="placeholder">Mascot Design</div>
-                <div class="placeholder">Mascot Variations</div>
-                <div class="placeholder">Application Examples</div>
+                <div class="placeholder">Logo Variations</div>
+                <div class="placeholder">Brand Guidelines</div>
+                <div class="placeholder">Business Cards</div>
               </div>
             </div>
           </div>
@@ -485,36 +530,36 @@
     </div>
   </div>
 
-  <!-- Modal 2: FreeAxez -->
-  <div id="modal2" class="modal">
+  <!-- Modal 2: RNNation -->
+  <div id="modal2" class="modal rnnation">
     <div class="modal-content">
       <div class="modal-header">
-        <h2>FreeAxez</h2>
+        <h2>RNNation</h2>
         <span class="close" onclick="closeModal('modal2')">&times;</span>
       </div>
       <div class="modal-body">
         <div class="modal-section">
           <h3>Company Overview</h3>
-          <p>FreeAxez is an innovative AI and enterprise solutions company focused on automating business processes and improving operational efficiency through intelligent technology solutions. They specialize in data-driven automation tools and AI-powered business intelligence.</p>
+          <p>RNNation is a premier nursing job board platform that empowers nurses to elevate their careers through a vast network of job opportunities, resources, and support. They connect healthcare professionals with nursing positions across the country, from entry-level to executive roles, while providing valuable career development resources.</p>
         </div>
 
         <div class="modal-section">
           <h3>Target Audience & Demographics</h3>
-          <p><strong>Primary Audience:</strong> Enterprise decision-makers, IT professionals, business operations managers</p>
-          <p><strong>Demographics:</strong> Ages 30-50, tech-savvy professionals, mid to large enterprise companies</p>
-          <p><strong>Pain Points:</strong> Manual processes, data silos, inefficient workflows, need for scalable solutions</p>
-          <p><strong>Goals:</strong> Automate repetitive tasks, gain business insights, improve operational efficiency</p>
+          <p><strong>Primary Audience:</strong> Registered nurses, nursing students, healthcare professionals, travel nurses</p>
+          <p><strong>Demographics:</strong> Ages 22-60, licensed nurses at all career stages, healthcare facility HR departments</p>
+          <p><strong>Pain Points:</strong> Finding quality nursing positions, career advancement opportunities, competitive compensation, work-life balance</p>
+          <p><strong>Goals:</strong> Secure fulfilling nursing careers, advance professionally, find flexible work arrangements, connect with reputable healthcare facilities</p>
         </div>
 
         <div class="modal-section">
           <h3>Design Strategy & Thought Process</h3>
-          <p>For FreeAxez, I emphasized a cutting-edge, tech-forward design approach that communicates innovation and reliability. The design language uses clean geometric shapes, modern typography, and a sophisticated color palette to appeal to enterprise audiences while showcasing the company's AI capabilities.</p>
+          <p>For RNNation, I utilized their patriotic red, blue, and white color scheme to create designs that convey trust, professionalism, and healthcare excellence. The design emphasizes the platform's commitment to nursing professionals while maintaining a sense of community and support that resonates with healthcare workers.</p>
           <p><strong>Key Design Principles:</strong></p>
           <ul>
-            <li>Modern, tech-forward aesthetic with clean lines</li>
-            <li>Data visualization elements to represent AI/analytics</li>
-            <li>Professional color scheme (blues, grays, accent colors)</li>
-            <li>Scalable designs for various digital platforms</li>
+            <li>Patriotic color scheme reflecting trust and reliability</li>
+            <li>Healthcare-focused imagery and messaging</li>
+            <li>Community-oriented design elements</li>
+            <li>Professional yet approachable aesthetic for healthcare workers</li>
           </ul>
         </div>
 
@@ -522,35 +567,35 @@
           <h3>Design Showcase</h3>
           <div class="design-showcase">
             <div class="design-category">
-              <h4>Marketing Materials</h4>
+              <h4>Website Graphics</h4>
               <div class="design-images">
-                <div class="placeholder">Product Brochure</div>
-                <div class="placeholder">Case Studies</div>
-                <div class="placeholder">White Papers</div>
+                <div class="placeholder">Homepage Banner</div>
+                <div class="placeholder">Job Board Design</div>
+                <div class="placeholder">Resource Center</div>
               </div>
             </div>
             <div class="design-category">
-              <h4>Social Media</h4>
+              <h4>Social Media Campaign</h4>
               <div class="design-images">
                 <div class="placeholder">LinkedIn Posts</div>
-                <div class="placeholder">Tech Announcements</div>
-                <div class="placeholder">Company Updates</div>
+                <div class="placeholder">Nurse Appreciation</div>
+                <div class="placeholder">Job Alerts</div>
               </div>
             </div>
             <div class="design-category">
-              <h4>Internal Tools UI</h4>
+              <h4>Marketing Materials</h4>
               <div class="design-images">
-                <div class="placeholder">Dashboard Design</div>
-                <div class="placeholder">Tool Interface</div>
-                <div class="placeholder">User Flow</div>
+                <div class="placeholder">Email Templates</div>
+                <div class="placeholder">Career Fair Materials</div>
+                <div class="placeholder">Partnership Flyers</div>
               </div>
             </div>
             <div class="design-category">
-              <h4>Technical Documentation</h4>
+              <h4>Brand Assets</h4>
               <div class="design-images">
-                <div class="placeholder">API Docs</div>
-                <div class="placeholder">User Guides</div>
-                <div class="placeholder">Process Diagrams</div>
+                <div class="placeholder">Logo Applications</div>
+                <div class="placeholder">Style Guide</div>
+                <div class="placeholder">Merchandise Design</div>
               </div>
             </div>
           </div>
@@ -559,36 +604,36 @@
     </div>
   </div>
 
-  <!-- Modal 3: Puratos -->
-  <div id="modal3" class="modal">
+  <!-- Modal 3: Passionate Soccer Coach -->
+  <div id="modal3" class="modal passionatesoccercoach">
     <div class="modal-content">
       <div class="modal-header">
-        <h2>Puratos</h2>
+        <h2>Passionate Soccer Coach</h2>
         <span class="close" onclick="closeModal('modal3')">&times;</span>
       </div>
       <div class="modal-body">
         <div class="modal-section">
           <h3>Company Overview</h3>
-          <p>Puratos is a global leader in bakery, patisserie, and chocolate ingredients, with a strong focus on food innovation and R&D. They develop cutting-edge solutions for food manufacturers and artisans, emphasizing sustainability and quality in the food industry.</p>
+          <p>PassionateSoccerCoach.com is a comprehensive resource hub for soccer coaches at all levels, founded by Aldin Beslagic with 15 years of coaching experience. The platform provides knowledge, tools, and inspiration for coaches, parents, and players, offering training resources, practice plans, coaching philosophy guidance, and a supportive community for youth soccer development.</p>
         </div>
 
         <div class="modal-section">
           <h3>Target Audience & Demographics</h3>
-          <p><strong>Primary Audience:</strong> R&D teams, food scientists, business development professionals, strategic decision-makers</p>
-          <p><strong>Demographics:</strong> Ages 25-55, scientific and technical professionals, global food industry stakeholders</p>
-          <p><strong>Pain Points:</strong> Complex partnership decisions, need for data-driven R&D choices, streamlining innovation processes</p>
-          <p><strong>Goals:</strong> Make informed R&D partnership decisions, accelerate innovation, optimize resource allocation</p>
+          <p><strong>Primary Audience:</strong> Youth soccer coaches, parents of young players, soccer coaching enthusiasts, player development professionals</p>
+          <p><strong>Demographics:</strong> Ages 25-50, volunteer and professional coaches, soccer parents, youth sports coordinators</p>
+          <p><strong>Pain Points:</strong> Lack of coaching resources, need for practice planning tools, seeking player development strategies, building coaching confidence</p>
+          <p><strong>Goals:</strong> Improve coaching skills, access quality training materials, create positive player experiences, build successful youth programs</p>
         </div>
 
         <div class="modal-section">
           <h3>Design Strategy & Thought Process</h3>
-          <p>For Puratos, I focused on creating a clean, scientific aesthetic that communicates precision and innovation. The design approach emphasized clarity and functionality, using a structured layout that mirrors scientific methodology while maintaining visual appeal for business stakeholders.</p>
+          <p>For Passionate Soccer Coach, I implemented their white, pink, and blue color scheme to create an energetic yet professional design that appeals to both serious coaches and enthusiastic parents. The design balances the passion for soccer with educational credibility, creating a welcoming environment for coaches at all levels.</p>
           <p><strong>Key Design Principles:</strong></p>
           <ul>
-            <li>Clean, scientific interface design prioritizing usability</li>
-            <li>Structured information hierarchy for complex decision-making</li>
-            <li>Professional color palette reflecting food industry standards</li>
-            <li>Visual representations of decision trees and data flows</li>
+            <li>Energetic color palette reflecting soccer passion and professionalism</li>
+            <li>Educational-focused design elements for resource accessibility</li>
+            <li>Community-oriented visual language</li>
+            <li>Youth-friendly aesthetics that appeal to coaches of young players</li>
           </ul>
         </div>
 
@@ -596,35 +641,35 @@
           <h3>Design Showcase</h3>
           <div class="design-showcase">
             <div class="design-category">
-              <h4>Web Tool Interface</h4>
+              <h4>Website Design</h4>
               <div class="design-images">
-                <div class="placeholder">Decision Tool UI</div>
-                <div class="placeholder">Dashboard</div>
-                <div class="placeholder">Input Forms</div>
+                <div class="placeholder">Homepage Layout</div>
+                <div class="placeholder">Resource Library</div>
+                <div class="placeholder">Blog Design</div>
               </div>
             </div>
             <div class="design-category">
-              <h4>Decision Tree Visualizations</h4>
+              <h4>Educational Materials</h4>
               <div class="design-images">
-                <div class="placeholder">Flow Diagram</div>
-                <div class="placeholder">Process Map</div>
-                <div class="placeholder">Results View</div>
+                <div class="placeholder">Training Guides</div>
+                <div class="placeholder">Practice Plans</div>
+                <div class="placeholder">Coaching Tips</div>
               </div>
             </div>
             <div class="design-category">
-              <h4>Presentation Materials</h4>
+              <h4>Social Media Content</h4>
               <div class="design-images">
-                <div class="placeholder">Project Slides</div>
-                <div class="placeholder">Demo Materials</div>
-                <div class="placeholder">Technical Docs</div>
+                <div class="placeholder">Instagram Posts</div>
+                <div class="placeholder">Coaching Quotes</div>
+                <div class="placeholder">Video Thumbnails</div>
               </div>
             </div>
             <div class="design-category">
-              <h4>Website Banners</h4>
+              <h4>Community Features</h4>
               <div class="design-images">
-                <div class="placeholder">Hero Banner</div>
-                <div class="placeholder">Feature Highlight</div>
-                <div class="placeholder">CTA Section</div>
+                <div class="placeholder">Coach Profiles</div>
+                <div class="placeholder">Success Stories</div>
+                <div class="placeholder">Forum Design</div>
               </div>
             </div>
           </div>
@@ -633,36 +678,36 @@
     </div>
   </div>
 
-  <!-- Modal 4: Personal Projects -->
-  <div id="modal4" class="modal">
+  <!-- Modal 4: BestLogic Staffing -->
+  <div id="modal4" class="modal bestlogic">
     <div class="modal-content">
       <div class="modal-header">
-        <h2>Personal Creative Projects</h2>
+        <h2>BestLogic Staffing</h2>
         <span class="close" onclick="closeModal('modal4')">&times;</span>
       </div>
       <div class="modal-body">
         <div class="modal-section">
-          <h3>Project Overview</h3>
-          <p>My personal design projects span various creative ventures, from social media campaigns for local events to merchandise design for student organizations. These projects allow me to experiment with different styles and approaches while solving real-world design challenges.</p>
+          <h3>Company Overview</h3>
+          <p>BestLogic Staffing is an established recruitment and staffing company with more than a decade of experience connecting great employers and employees. They bring industry expertise, seasoned recruiters, and talented professionals to every opportunity, specializing in shortening time to hire, reducing costs, and providing access to trusted professionals across various industries.</p>
         </div>
 
         <div class="modal-section">
           <h3>Target Audience & Demographics</h3>
-          <p><strong>Primary Audience:</strong> Students, young professionals, local community members, event attendees</p>
-          <p><strong>Demographics:</strong> Ages 18-35, social media active users, community-engaged individuals</p>
-          <p><strong>Pain Points:</strong> Need for eye-catching event promotion, memorable branding, engaging social content</p>
-          <p><strong>Goals:</strong> Increase event attendance, build brand recognition, create shareable content</p>
+          <p><strong>Primary Audience:</strong> HR professionals, business owners, job seekers, hiring managers</p>
+          <p><strong>Demographics:</strong> Ages 25-55, corporate professionals, small to medium business owners, career professionals seeking advancement</p>
+          <p><strong>Pain Points:</strong> Lengthy hiring processes, difficulty finding qualified candidates, need for reliable staffing partners, career advancement challenges</p>
+          <p><strong>Goals:</strong> Streamline hiring processes, find quality talent efficiently, build long-term recruitment relationships, advance careers</p>
         </div>
 
         <div class="modal-section">
           <h3>Design Strategy & Thought Process</h3>
-          <p>For personal projects, I explore bold, creative approaches that push boundaries while maintaining clear communication. Each project allows me to test new design trends, color combinations, and layout techniques, creating a diverse portfolio that demonstrates versatility and creative problem-solving.</p>
+          <p>For BestLogic Staffing, I utilized their sophisticated white, grey, and gold color palette to create designs that convey established professionalism, premium service quality, and trustworthiness. The gold accents add a touch of excellence while the grey and white foundation ensures clarity and approachability in all communications.</p>
           <p><strong>Key Design Principles:</strong></p>
           <ul>
-            <li>Bold, attention-grabbing visuals for social media</li>
-            <li>Trendy design elements that appeal to younger demographics</li>
-            <li>Versatile designs that work across multiple platforms</li>
-            <li>Creative experimentation with typography and color</li>
+            <li>Premium color palette reflecting decade of industry expertise</li>
+            <li>Clean, professional typography for business communications</li>
+            <li>Consistent branding across all touchpoints</li>
+            <li>Elegant layouts that inspire confidence in staffing services</li>
           </ul>
         </div>
 
@@ -670,35 +715,35 @@
           <h3>Design Showcase</h3>
           <div class="design-showcase">
             <div class="design-category">
-              <h4>Social Media Campaigns</h4>
-              <div class="design-images">
-                <div class="placeholder">Instagram Posts</div>
-                <div class="placeholder">Story Templates</div>
-                <div class="placeholder">Facebook Events</div>
-              </div>
-            </div>
-            <div class="design-category">
-              <h4>Event Flyers</h4>
-              <div class="design-images">
-                <div class="placeholder">Concert Flyer</div>
-                <div class="placeholder">Workshop Promo</div>
-                <div class="placeholder">Meetup Design</div>
-              </div>
-            </div>
-            <div class="design-category">
-              <h4>Merchandise Design</h4>
-              <div class="design-images">
-                <div class="placeholder">T-shirt Design</div>
-                <div class="placeholder">Sticker Pack</div>
-                <div class="placeholder">Tote Bag</div>
-              </div>
-            </div>
-            <div class="design-category">
-              <h4>Personal Branding</h4>
+              <h4>Brand Identity</h4>
               <div class="design-images">
                 <div class="placeholder">Logo Design</div>
                 <div class="placeholder">Business Cards</div>
-                <div class="placeholder">Portfolio Layout</div>
+                <div class="placeholder">Letterhead</div>
+              </div>
+            </div>
+            <div class="design-category">
+              <h4>Marketing Materials</h4>
+              <div class="design-images">
+                <div class="placeholder">Company Brochure</div>
+                <div class="placeholder">Service Overview</div>
+                <div class="placeholder">Case Studies</div>
+              </div>
+            </div>
+            <div class="design-category">
+              <h4>Digital Assets</h4>
+              <div class="design-images">
+                <div class="placeholder">Website Graphics</div>
+                <div class="placeholder">Email Templates</div>
+                <div class="placeholder">Social Media Kit</div>
+              </div>
+            </div>
+            <div class="design-category">
+              <h4>Corporate Materials</h4>
+              <div class="design-images">
+                <div class="placeholder">Presentation Templates</div>
+                <div class="placeholder">Report Design</div>
+                <div class="placeholder">Trade Show Materials</div>
               </div>
             </div>
           </div>
