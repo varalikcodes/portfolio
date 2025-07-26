@@ -1,11 +1,40 @@
-// ===== ENHANCED PROJECTS SECTION - ADD TO YOUR SCRIPT.JS =====
-
-// Filter functionality
+// ===== SINGLE DOMCONTENTLOADED EVENT LISTENER =====
 document.addEventListener("DOMContentLoaded", function () {
+  
+  // ===== TYPING ANIMATION (ONLY ONCE!) =====
+  const text = "Varalika Varanasi";
+  const typedText = document.getElementById("typed-text");
+  
+  if (typedText) {
+    typedText.textContent = ""; // Clear any existing content
+    let i = 0;
+    
+    function typeLetter() {
+      if (i < text.length) {
+        typedText.textContent += text.charAt(i);
+        i++;
+        setTimeout(typeLetter, 100);
+      }
+    }
+    typeLetter();
+  }
+
+  // ===== THEME TOGGLE (ONLY ONCE!) =====
+  const themeToggle = document.getElementById("theme-toggle");
+  const root = document.documentElement;
+  
+  if (themeToggle) {
+    root.setAttribute('data-theme', 'light');
+    themeToggle.addEventListener("click", () => {
+      const current = root.getAttribute("data-theme");
+      root.setAttribute("data-theme", current === "dark" ? "light" : "dark");
+    });
+  }
+
+  // ===== ENHANCED PROJECTS FILTERING =====
   const filterBtns = document.querySelectorAll('.filter-btn');
   const projects = document.querySelectorAll('.project');
 
-  // Only add filter functionality if filter buttons exist
   if (filterBtns.length > 0) {
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
@@ -30,66 +59,32 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Enhanced project interactions
+  // ===== ENHANCED PROJECT INTERACTIONS =====
   projects.forEach(project => {
     project.addEventListener('mouseenter', () => {
-      project.style.transform = 'translateY(-5px) scale(1.02)';
+      if (!project.classList.contains('hidden')) {
+        project.style.transform = 'translateY(-5px) scale(1.02)';
+      }
     });
     
     project.addEventListener('mouseleave', () => {
-      project.style.transform = 'translateY(0) scale(1)';
+      if (!project.classList.contains('hidden')) {
+        project.style.transform = 'translateY(0) scale(1)';
+      }
     });
   });
 
-  // Your existing typing effect code...
-  const text = "Varalika Varanasi";
-  const typedText = document.getElementById("typed-text");
-  let i = 0;
-  function typeLetter() {
-    if (i < text.length) {
-      typedText.textContent += text.charAt(i);
-      i++;
-      setTimeout(typeLetter, 100);
-    }
+  // ===== FIXED CREDENTIAL BUTTON =====
+  const fixedButton = document.querySelector('.fixed-credential-button');
+  if (fixedButton) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        fixedButton.style.opacity = '1';
+        fixedButton.style.pointerEvents = 'auto';
+      } else {
+        fixedButton.style.opacity = '0';
+        fixedButton.style.pointerEvents = 'none';
+      }
+    });
   }
-  typeLetter();
-
-  // Your existing theme toggle code...
-  const themeToggle = document.getElementById("theme-toggle");
-  const root = document.documentElement;
-  root.setAttribute('data-theme', 'light');
-  themeToggle.addEventListener("click", () => {
-    const current = root.getAttribute("data-theme");
-    root.setAttribute("data-theme", current === "dark" ? "light" : "dark");
-  });
-});
-
-
-
-document.addEventListener("DOMContentLoaded", function () {
-  const text = "Varalika Varanasi";
-  const typedText = document.getElementById("typed-text");
-  let i = 0;
-
-  function typeLetter() {
-    if (i < text.length) {
-      typedText.textContent += text.charAt(i);
-      i++;
-      setTimeout(typeLetter, 100);
-    }
-  }
-
-  typeLetter();
-
-  // Theme toggle
-  const themeToggle = document.getElementById("theme-toggle");
-  const root = document.documentElement;
-
-  // Set default to light
-  root.setAttribute('data-theme', 'light');
-
-  themeToggle.addEventListener("click", () => {
-    const current = root.getAttribute("data-theme");
-    root.setAttribute("data-theme", current === "dark" ? "light" : "dark");
-  });
 });
