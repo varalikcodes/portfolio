@@ -45,15 +45,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const filter = btn.dataset.filter;
 
+        // Update your filtering logic in script.js
         projects.forEach((project, index) => {
-          if (filter === 'all' || project.dataset.category === filter) {
+          const projectCategories = project.dataset.category || '';
+          
+          if (filter === 'all' || projectCategories.includes(filter)) {
             project.classList.remove('hidden');
-            // Stagger the re-animation
             project.style.animation = `projectLoad 0.6s ease forwards`;
             project.style.animationDelay = `${index * 0.1}s`;
           } else {
             project.classList.add('hidden');
           }
+
         });
       });
     });
