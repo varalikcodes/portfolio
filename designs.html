@@ -144,12 +144,18 @@
     .company-card {
       background-color: var(--bg-color);
       border: 2px solid var(--accent-color);
-      padding: 20px;
+      padding: 30px 20px;
       border-radius: 12px;
       cursor: pointer;
       transition: all 0.3s ease;
       backdrop-filter: blur(6px);
       position: relative;
+      text-align: center;
+      min-height: 120px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
     .company-card:hover {
@@ -158,10 +164,31 @@
       border-color: var(--accent-color);
     }
 
+    .company-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .company-logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+      object-fit: contain;
+      background-color: white;
+      padding: 5px;
+      border: 1px solid #ddd;
+      flex-shrink: 0;
+    }
+
     .company-card h3 {
       color: var(--accent-color);
-      margin: 0 0 10px 0;
+      margin: 0;
       text-shadow: 0 0 5px var(--accent-color);
+      font-size: 18px;
+      text-align: center;
     }
 
     .company-card p {
@@ -294,6 +321,16 @@
         grid-template-columns: 1fr;
       }
       
+      .company-logo {
+        width: 50px;
+        height: 50px;
+      }
+      
+      .company-card {
+        padding: 25px 15px;
+        min-height: 100px;
+      }
+      
       .modal-content {
         width: 95%;
         margin: 5% auto;
@@ -319,7 +356,7 @@
 </head>
 <body>
   <header>
-    <h1 class="terminal-title">Studio Varalika<span class="cursor">|</span></h1>
+    <h1 class="terminal-title">🎨 Varalika's Design Portfolio<span class="cursor">|</span></h1>
     <div class="social-links">
       <button id="theme-toggle" aria-label="Toggle Theme">🌓</button>
       <a href="index.html" class="credential-button">← Back to Resume</a>
@@ -333,38 +370,38 @@
     <div class="company-grid">
       <!-- Company 1 -->
       <div class="company-card" onclick="openModal('modal1')">
-        <h3>BestLogic Staffing</h3>
-        <p><strong>Industry:</strong> Staffing & Recruitment</p>
-        <p><strong>My Role:</strong> Graphic Design Intern</p>
-        <p><strong>Projects:</strong> Logos, brochures, mascots, websites, social media graphics</p>
-        <div class="click-hint">Click to explore design strategy & work →</div>
+        <div class="company-header">
+          <img src="logos/bestlogic-logo.png" alt="BestLogic Staffing Logo" class="company-logo">
+          <h3>BestLogic Staffing</h3>
+        </div>
+        <div class="click-hint">Click to explore →</div>
       </div>
 
       <!-- Company 2 -->
       <div class="company-card" onclick="openModal('modal2')">
-        <h3>Passionate Soccer Coach </h3>
-        <p><strong>Industry:</strong> AI & Enterprise Solutions</p>
-        <p><strong>My Role:</strong> Data Analyst Intern</p>
-        <p><strong>Projects:</strong> Marketing materials, technical documentation design, internal tools UI</p>
-        <div class="click-hint">Click to explore design strategy & work →</div>
+        <div class="company-header">
+          <img src="logos/freeaxez-logo.png" alt="FreeAxez Logo" class="company-logo">
+          <h3>FreeAxez</h3>
+        </div>
+        <div class="click-hint">Click to explore →</div>
       </div>
 
       <!-- Company 3 -->
       <div class="company-card" onclick="openModal('modal3')">
-        <h3>Zeus Careers</h3>
-        <p><strong>Industry:</strong> Food Innovation & R&D</p>
-        <p><strong>My Role:</strong> Externship Student</p>
-        <p><strong>Projects:</strong> Web tool interface, decision tree visualizations, presentation materials</p>
-        <div class="click-hint">Click to explore design strategy & work →</div>
+        <div class="company-header">
+          <img src="logos/puratos-logo.png" alt="Puratos Logo" class="company-logo">
+          <h3>Puratos</h3>
+        </div>
+        <div class="click-hint">Click to explore →</div>
       </div>
 
       <!-- Company 4 -->
       <div class="company-card" onclick="openModal('modal4')">
-        <h3>RNNatation</h3>
-        <p><strong>Industry:</strong> Various Creative Ventures</p>
-        <p><strong>My Role:</strong> Independent Designer</p>
-        <p><strong>Projects:</strong> Social media campaigns, event flyers, merchandise design, branding</p>
-        <div class="click-hint">Click to explore design strategy & work →</div>
+        <div class="company-header">
+          <img src="logos/personal-logo.png" alt="Personal Brand Logo" class="company-logo">
+          <h3>Personal Projects</h3>
+        </div>
+        <div class="click-hint">Click to explore →</div>
       </div>
     </div>
   </section>
@@ -447,7 +484,7 @@
   <div id="modal2" class="modal">
     <div class="modal-content">
       <div class="modal-header">
-        <h2>Passionate Soccer Coach</h2>
+        <h2>FreeAxez</h2>
         <span class="close" onclick="closeModal('modal2')">&times;</span>
       </div>
       <div class="modal-body">
@@ -521,7 +558,7 @@
   <div id="modal3" class="modal">
     <div class="modal-content">
       <div class="modal-header">
-        <h2>Zeus Careers</h2>
+        <h2>Puratos</h2>
         <span class="close" onclick="closeModal('modal3')">&times;</span>
       </div>
       <div class="modal-body">
@@ -595,7 +632,7 @@
   <div id="modal4" class="modal">
     <div class="modal-content">
       <div class="modal-header">
-        <h2>RNNatation </h2>
+        <h2>Personal Creative Projects</h2>
         <span class="close" onclick="closeModal('modal4')">&times;</span>
       </div>
       <div class="modal-body">
