@@ -145,25 +145,25 @@
     /* Company Grid */
    .company-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 40px;
+      grid-template-columns: repeat(4, 1fr);     /* was: repeat(auto-fit, minmax(350px, 1fr)) */
+      gap: 30px;                                 /* was: 40px - reduced to fit better */
       margin-top: 50px;
-      margin-bottom: 20px;             /* NEW LINE - reduces space below */
+      margin-bottom: 20px;
       justify-content: center;
       align-items: center;
     }
-
+    
     .company-card {
       background-color: var(--bg-color);
       border: 2px solid var(--accent-color);
-      padding: 40px 25px; 
+      padding: 40px 20px;                        /* was: 50px 35px - reduced to fit 4 in a row */
       border-radius: 12px;
       cursor: pointer;
       transition: all 0.3s ease;
       backdrop-filter: blur(6px);
       position: relative;
       text-align: center;
-      min-height: 140px;    
+      min-height: 160px;                         /* was: 180px */
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -361,7 +361,7 @@
     /* Mobile Responsiveness */
     @media (max-width: 768px) {
       .company-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr;               /* Single column on mobile */
         gap: 25px;
       }
 
