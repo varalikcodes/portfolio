@@ -353,6 +353,11 @@ h2 {
   border-left: 4px solid #ed8936;
 }
 
+.project[data-category="Data"] {
+  border-left: 4px solid #ed8936;
+}
+
+
 /* Hidden class for filtering */
 .hidden {
   display: none;
