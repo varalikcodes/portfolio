@@ -180,9 +180,6 @@
       height: 70px;  
       border-radius: 8px;
       object-fit: contain;
-      background-color: white;
-      padding: 5px;
-      border: 1px solid #ddd;
       flex-shrink: 0;
     }
 
