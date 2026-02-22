@@ -24,10 +24,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const root = document.documentElement;
   
   if (themeToggle) {
+    const toggleIcon = themeToggle.querySelector('.toggle-icon');
     root.setAttribute('data-theme', 'light');
     themeToggle.addEventListener("click", () => {
       const current = root.getAttribute("data-theme");
-      root.setAttribute("data-theme", current === "dark" ? "light" : "dark");
+      const next = current === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      if (toggleIcon) {
+        toggleIcon.textContent = next === 'dark' ? '🌙' : '☀️';
+      }
     });
   }
 

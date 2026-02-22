@@ -110,10 +110,52 @@ header {
 #theme-toggle {
   background: none;
   border: none;
-  font-size: 20px;
+  padding: 0;
   margin-left: 15px;
   cursor: pointer;
-  color: var(--accent-color);
+  display: flex;
+  align-items: center;
+}
+
+.toggle-track {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--secondary-bg);
+  border: 2px solid var(--accent-color);
+  border-radius: 999px;
+  padding: 4px 8px;
+  position: relative;
+  transition: background 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 0 8px var(--shadow-color);
+}
+
+.toggle-icon {
+  font-size: 14px;
+  line-height: 1;
+  transition: transform 0.4s ease;
+  user-select: none;
+}
+
+.toggle-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  transition: transform 0.3s ease, background 0.3s ease;
+  box-shadow: 0 0 6px var(--accent-color);
+}
+
+[data-theme='dark'] .toggle-thumb {
+  transform: translateX(4px);
+}
+
+[data-theme='dark'] .toggle-track {
+  box-shadow: 0 0 10px var(--accent-color);
+}
+
+#theme-toggle:hover .toggle-track {
+  box-shadow: 0 0 14px var(--accent-color);
 }
 
 /* Sections */
