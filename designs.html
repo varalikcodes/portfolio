@@ -418,6 +418,18 @@
       border: 1px solid var(--border);
       border-radius: 999px;
       color: var(--text);
+      text-decoration: none;
+      cursor: default;
+    }
+    a.method-badge {
+      cursor: pointer;
+      border-color: var(--accent);
+      color: var(--accent);
+      transition: background 0.2s, color 0.2s;
+    }
+    a.method-badge:hover {
+      background: var(--accent);
+      color: var(--bg);
     }
 
     /* Image placeholder grid (for work samples) */
@@ -562,15 +574,15 @@
     <!-- Card 4 -->
     <article class="project-card" onclick="openModal('m4')" role="button" tabindex="0">
       <p class="card-index">04 / 04</p>
-      <img src="logos/bestlogic-logo.png" alt="BestLogic Staffing" class="card-logo"
+      <img src="logos/puratos-logo.png" alt="Rutgers Externship: Puratos" class="card-logo"
            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <div class="card-logo-fallback" style="display:none">🤝</div>
-      <h3>BestLogic Staffing</h3>
-      <p class="card-type">Staffing Agency — Full Brand Refresh &amp; Collateral</p>
+      <h3>Rutgers Externship: Puratos</h3>
+      <p class="card-type">Food Innovation Enterprise — UX Research & Frontend Development &amp; Collateral</p>
       <div class="card-tags">
-        <span class="tag">Brand Refresh</span>
-        <span class="tag">Print</span>
-        <span class="tag">Digital</span>
+        <span class="tag">UX Research</span>
+        <span class="tag">Frontend Dev</span>
+        <span class="tag">Team Lead</span>
       </div>
       <span class="card-cta">Read case study</span>
     </article>
@@ -1033,103 +1045,81 @@
   </div>
 </div>
 
-<!-- MODAL 4: BestLogic Staffing -->
+<!-- MODAL 4: Puratos Externship -->
 <div id="m4" class="modal-overlay" role="dialog" aria-modal="true">
   <div class="modal-box">
     <div class="modal-band">
       <div class="modal-band-left">
-        <p class="modal-eyebrow">04 — Staffing &amp; Recruitment</p>
-        <h2 class="modal-title"><a href="https://www.bestlogicstaffing.com/" target="_blank">BestLogic Staffing ↗</a></h2>
-        <p class="modal-subtitle">Brand Refresh · Print &amp; Digital Collateral · Corporate Materials</p>
+        <p class="modal-eyebrow">04 — Food Innovation Enterprise</p>
+        <h2 class="modal-title"><a href="https://puratosr-d.onrender.com/" target="_blank">Puratos R&D Go-No-Go System ↗</a></h2>
+        <p class="modal-subtitle">UX Research · Frontend Development · Team Lead · Rutgers MBS Externship</p>
       </div>
       <button class="modal-close" onclick="closeModal('m4')" aria-label="Close">×</button>
     </div>
     <div class="impact-bar">
       <div class="impact-stat">
-        <span class="impact-number">10+</span>
-        <span class="impact-label">Years in business</span>
+        <span class="impact-number">11 wks</span>
+        <span class="impact-label">Project Duration</span>
       </div>
       <div class="impact-stat">
-        <span class="impact-number">↑ XX%</span>
-        <span class="impact-label">Replace with your metric</span>
+        <span class="impact-number">4</span>
+        <span class="impact-label">Phases: Discovery → Delivery</span>
       </div>
       <div class="impact-stat">
-        <span class="impact-number">XX</span>
-        <span class="impact-label">Replace with your metric</span>
+        <span class="impact-number">Live</span>
+        <span class="impact-label">Deployed Web Product</span>
       </div>
     </div>
     <div class="modal-body">
 
+      <!-- 01 INTRO -->
       <div class="arc-step">
         <div class="arc-number">01</div>
         <div class="arc-content">
           <p class="arc-label">Intro</p>
-          <h3 class="arc-heading">A decade of expertise that needed to look the part.</h3>
+          <h3 class="arc-heading">Team Lead on a real enterprise project for a global food innovation company — with a shipped product at the end.</h3>
           <p class="arc-body">
-            BestLogic Staffing has over <strong>10 years of experience</strong> connecting employers with trusted professionals across industries. Despite their track record, <span class="kw">✏️ Add how you came to work with them and the state of their brand when you started.</span>
+            Through the <strong>Rutgers MBS Externship Program</strong>, I led a four-person cross-disciplinary team on an 11-week engagement with <strong>Puratos</strong> — a Belgian food innovation company operating in 100+ countries, focused on bakery, patisserie, and chocolate. Our mentor was <strong>Dr. Zhixin Wang</strong>, Food Technology Research Manager at Puratos. The deliverable was a fully functional, deployed web tool. I served as Team Lead and built the frontend.
           </p>
         </div>
       </div>
 
+      <!-- 02 THE PROBLEM -->
       <div class="arc-step">
         <div class="arc-number">02</div>
         <div class="arc-content">
-          <p class="arc-label">The Challenge</p>
-          <h3 class="arc-heading">Premium service, outdated presentation.</h3>
+          <p class="arc-label">The Problem</p>
+          <h3 class="arc-heading">R&D collaboration decisions were fragmented, inconsistent, and dependent on whoever happened to be in the room.</h3>
           <p class="arc-body">
-            <span class="kw">✏️ Describe the specific problem.</span> Was their brand inconsistent across touchpoints? Were marketing materials failing to land new enterprise clients? Did their visual identity lag behind competitors in the premium staffing space?
+            Puratos' North American R&D division evaluates potential partners — startups, ingredient companies, research institutions — for collaboration opportunities. Without a standardized system, decision-making varied by team and relied on informal judgment. A promising partner could get rejected because the right questions weren't asked. A weak one could advance because no one had a structured way to say no. The cost wasn't just time — it was <strong>misaligned innovation strategy</strong> across business units.
           </p>
         </div>
       </div>
 
+      <!-- 03 USER RESEARCH -->
       <div class="arc-step">
         <div class="arc-number">03</div>
         <div class="arc-content">
-          <p class="arc-label">The Solution</p>
-          <h3 class="arc-heading">White, grey, and gold — a system that signals earned authority.</h3>
+          <p class="arc-label">UX Research</p>
+          <h3 class="arc-heading">Before designing anything, we mapped the user's full decision-making journey — confusion and all.</h3>
           <p class="arc-body">
-            I developed a <strong>sophisticated grey, white, and gold palette</strong> that positions BestLogic as a premium partner, not just another staffing vendor. Gold accents communicate precision and excellence; the neutral base ensures clarity across print and digital contexts. <span class="kw">✏️ Describe specific deliverables.</span>
+            We created a formal <strong>journey map</strong> for our primary persona: an R&D employee at Puratos tasked with evaluating a potential collaborator. The map traced 4 stages — searching for candidates, researching them, using criteria to evaluate, and making a final decision. What it revealed: the user moved from curiosity to confusion between stages 1 and 2, because there was no standardized list of what to look for. By stage 3, the emotion shifted to "sense of efficiency, uncertainty" — they were trying to be rigorous but had no tool that supported rigor. Our design goal became clear: <strong>give the user confidence at the decision point by removing ambiguity earlier in the process.</strong>
           </p>
           <div class="methods-row">
-            <span class="method-badge">Brand Identity</span>
-            <span class="method-badge">Print Collateral</span>
-            <span class="method-badge">Presentation Design</span>
-            <span class="method-badge">✏️ Add your methods</span>
+            <a class="method-badge" href="https://github.com/varalikcodes/puratosr-d" target="_blank">Frontend Development ↗</a>
+            <a class="method-badge" href="puratos/Journey%20Map.pdf" target="_blank" download>Journey Mapping ↗</a>
+            <a class="method-badge" href="puratos/Project%20Description%20Writeup.pdf" target="_blank" download>Project Description ↗</a>
+            <a class="method-badge" href="puratos/Lighting%20Talk%20Presentation%20-Draft.pdf" target="_blank" download>Lighting Talk ↗</a>
+            <a class="method-badge" href="puratos/Puratos%20R%26D_CharterDoc_02282024.docx" target="_blank" download>Project Charter ↗</a>
+            <a class="method-badge" href="puratos/Concept Map.JPG" target="_blank" download>Concept Map ↗</a>
+            <a class="method-badge" href="https://puratosr-d.onrender.com/" target="_blank">Live Site ↗</a>
+            <a class="method-badge" href="puratos/Varalika%20Varanasi_Team%20Lead%20Certificate%20of%20Achievement.pdf" target="_blank" download>Team Leadership ↗</a>
           </div>
-          <div class="work-grid" style="margin-top:24px;">
-            <div class="work-item"><span class="work-item-icon">🖼️</span>Business Cards</div>
-            <div class="work-item"><span class="work-item-icon">🖼️</span>Brochure</div>
-            <div class="work-item"><span class="work-item-icon">🖼️</span>Deck Template</div>
-            <div class="work-item"><span class="work-item-icon">🖼️</span>Website Graphics</div>
-          </div>
-          <p style="font-size:11px;color:var(--text-muted);margin-top:10px;">✏️ Replace with your actual work samples.</p>
         </div>
       </div>
-
-      <div class="arc-step">
-        <div class="arc-number">04</div>
-        <div class="arc-content">
-          <p class="arc-label">Key Insights</p>
-          <h3 class="arc-heading">What the work revealed.</h3>
-          <p class="arc-body"><span class="kw">✏️ Add 2–3 findings.</span> What did you learn about designing for a B2B sales context? Were there unexpected constraints (print specs, regulatory language, multi-stakeholder reviews)?</p>
-        </div>
-      </div>
-
-      <div class="arc-step">
-        <div class="arc-number">05</div>
-        <div class="arc-content">
-          <p class="arc-label">The Impact</p>
-          <h3 class="arc-heading">A brand that opens doors.</h3>
-          <p class="arc-body"><span class="kw">✏️ Add your impact here.</span> Did the new collateral help close a key enterprise account? Did leadership adopt it across all channels? How did the refresh change how the company presented itself?</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
 
 <!-- ─── BACK BUTTON ──────────────────────────────────────────────────── -->
-<a href="index.html" class="back-btn">← Portfolio</a>
+<a href="index.html" class="back-btn">Portfolio</a>
 
 <script>
   // ── Typing animation ──────────────────────────────────────────────
