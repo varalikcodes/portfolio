@@ -63,10 +63,16 @@ header {
   background: var(--surface);
   border-bottom: 1px solid var(--border);
   backdrop-filter: blur(12px);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+header.hidden {
+  transform: translateY(-110%);
+  opacity: 0;
+  pointer-events: none;
 }
 
 .logo {
-  font-size: 20px;
+  font-size: 35px;
   font-weight: 700;
   color: var(--accent);
   text-shadow: 0 0 18px var(--accent-glow);
@@ -498,11 +504,11 @@ a.method-badge:hover {
   position: fixed; bottom: 24px; left: 24px; z-index: 200;
   background: var(--accent);
   color: white;
-  padding: 11px 20px;
-  border-radius: 10px;
+  padding: 16px 28px;
+  border-radius: 14px;
   text-decoration: none;
   font-family: 'Space Mono', monospace;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 700;
   box-shadow: 0 4px 16px var(--accent-glow);
   transition: box-shadow 0.2s, transform 0.2s;
