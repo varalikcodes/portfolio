@@ -46,6 +46,12 @@
 
   <section class="education">
     <h2>Education</h2>
+        <p>
+      <strong> University of Pittsburgh, Pittsburgh, PA</strong><br />
+     August 2026 – <br />
+      <br />
+      Master's in Data Science 
+    </p>
     <p>
       <strong>Rutgers University, New Brunswick, NJ</strong><br />
       Sept. 2021 – December 2025<br />
@@ -57,14 +63,18 @@
 <section id="experience" class="content-section experience-section">
   <h2>Work Experience</h2>
   <div class="job-entry">
-  <h3>Virtua Health System – Data Science Intern</h3>
+  <h3>Virtua Health System – Data Support Speaclist</h3>
   <p class="date">March 2026 </p>
   <ul>
-    <li>Developing production LLM solutions on <strong></strong> Azure </strong> for revenue cycle management, building an AI-powered denial summarization system that identifies insurance claim rejection patterns and recommends corrective actions </li>
-    <li>Conducting peer code reviews for a <strong> machine learning classification system</strong>that determines inpatient vs. outpatient patient status for insurance billing purposes, ensuring accuracy and regulatory compliance in high-stakes healthcare decisions</li>
-    <li>Completing Epic Systems certifications while <strong>integrating AI/ML capabilities into enterprise healthcare workflows</strong>strong>, demonstrating the ability to work with complex, mission-critical proprietary systems in regulated environments</li>
-    <li>Collaborating with clinical teams, billing specialists, and IT stakeholders to translate healthcare business requirements into technical AI solutions, bridging the gap between medical operations and technology implementation </li>
-  </ul>
+    <li>Analyzing <strong>Epic Cosmos</strong> data to identify factors associated with Post-Concussive Syndrome after concussion, supporting clinical understanding of recovery risk patterns</li>
+    <li>Iterating on a <strong>predictive heart failure readmission model</strong> (Model 3), extracting and engineering features from Epic Clarity to improve prediction accuracy for care teams</li>
+    <li>Building and owning Virtua's <strong>AI Governance program end-to-end</strong>, including three internal Flask webapps and three SharePoint knowledge hubs supporting vendor review, risk assessment, and AI literacy across the organization</li>
+    <li>Developing an externally facing vendor intake tool (ITQ) with <strong>branching questionnaires and time-limited, legal-gated access controls</strong> to secure sensitive third-party information during AI vendor evaluation</li>
+    <li>Designing an internal <strong>Risk Tier tool</strong> that scores vendor liability, potential damage exposure, and policy compatibility, centralizing decision-making for AI procurement</li>
+    <li>Creating a <strong>Model Catalog webapp</strong> to track Azure runtime stacks, resource groups, and endpoints alongside Epic ML models, automations, Power BI dashboards, and LLM deployments, preventing untracked or outdated assets</li>
+    <li>Laying the technical groundwork for a <strong>Microsoft Copilot (GPT-4o) agent</strong> to streamline governance workflows across the ITQ, Risk Tier, and Model Catalog tools</li>
+    <li>Building an <strong>automated denial-letter appeal pipeline</strong> using Azure Document Intelligence for letter extraction, an automated SQL query against Epic Clarity by MRN, and an LLM to evaluate appeal eligibility against clinical criteria and physician notes, accelerating the appeal generation process</li>
+</ul>
 </div>
   <div class="job-entry">
   <h3>FreeAxez – Data Analyst Intern</h3>
@@ -119,6 +129,32 @@
   <div class="container">
     <h2>Certifications</h2>
 
+      <div class="certification-item">
+    <h3>Epic Health Systems Certified – Chronicles, Caboodle, Clarity, Cosmos</h3>
+    <ul>
+      <li>Certified across Epic's core data platforms, spanning transactional (Chronicles), analytics warehouse (Caboodle), reporting (Clarity), and multi-organization benchmarking (Cosmos) systems.</li>
+      <li>Applied certification knowledge to extract, query, and analyze patient data for clinical and operational data science projects at Virtua Health.</li>
+    </ul>
+    <a href="epic_certificate.pdf" target="_blank" class="credential-button">Show Credential</a>
+    </div>
+    
+    <div class="certification-item">
+    <h3>Antropic:Claude 101 Certified</h3>
+    <ul>
+      <li>Completed Anthropic's foundational certification on effectively working with Claude models.</li>
+      <li>Applied learnings to production LLM development and AI governance work at Virtua Health.</li>
+    </ul>
+    <a href="claude_101_certificate.pdf" target="_blank" class="credential-button">Show Credential</a>
+    </div>
+    
+    <div class="certification-item">
+    <h3>Anthropic Academy – AI Fluency: Framework & Foundations</h3>
+    <ul>
+      <li>Completed Anthropic Academy's certification on foundational AI fluency concepts and frameworks.</li>
+      <li>Built understanding of responsible and effective AI usage, informing governance and internal AI education efforts at Virtua Health.</li>
+    </ul>
+    <a href="ai_fluency_certificate.pdf" target="_blank" class="credential-button">Show Credential</a>
+    </div>
     <div class="certification-item">
       <h3>LinkedIn Learning - Hands-On AI: Build a Generative Language Model from Scratch </h3>
       <ul>
@@ -169,6 +205,29 @@
         </div>
         
         <div class="project-grid">
+          <div class="project" data-category="ai-ml data">
+                <h3>AI Governance Program</h3>
+                <p>Designed and built Virtua Health's AI Governance program end-to-end, including three internal Flask webapps and three SharePoint knowledge hubs. Built an externally facing vendor intake tool (ITQ) with branching questionnaires and legal-gated, time-limited access controls, an internal Risk Tier tool to score vendor liability and policy compatibility, and a Model Catalog webapp tracking Azure runtime stacks, resource groups, and endpoints alongside Epic ML models, automations, Power BI dashboards, and LLM deployments. Laid the groundwork for a Microsoft Copilot (GPT-4o) agent to streamline the governance workflow.</p>
+                <p><strong>Tech Stack:</strong> Python, Flask, Azure, Microsoft Copilot (GPT-4o), SharePoint</p>
+            </div>
+            
+            <div class="project" data-category="ai-ml data">
+                <h3>Automated Denial Letter Appeal Pipeline</h3>
+                <p>Built an end-to-end pipeline at <strong>Virtua Health</strong> to accelerate insurance denial appeals. Azure Document Intelligence extracts and structures data from incoming denial letters, an automated SQL query pulls patient records from Epic Clarity by MRN, and an LLM evaluates appeal eligibility against clinical criteria, physician notes, and time-stamped values to generate a draft appeal report — reducing manual review time in the appeals process.</p>
+                <p><strong>Tech Stack:</strong> Azure Document Intelligence, SQL, Epic Clarity, LLM (GPT-4o)</p>
+            </div>
+            
+            <div class="project" data-category="data">
+                <h3>Post-Concussive Syndrome Risk Factor Analysis</h3>
+                <p>Conducted data analysis using <strong>Epic Cosmos</strong> at Virtua Health to identify factors associated with Post-Concussive Syndrome after concussion, supporting clinical understanding of recovery risk patterns across a large patient population.</p>
+                <p><strong>Tech Stack:</strong> Epic Cosmos, SQL, Data Analysis</p>
+            </div>
+            
+            <div class="project" data-category="ai-ml data">
+                <h3>Heart Failure Readmission Prediction Model</h3>
+                <p>Developed a Model 3 iteration of a predictive heart failure readmission model at <strong>Virtua Health</strong>, extracting and engineering features from patient data in Epic Clarity to improve prediction accuracy and support proactive care decisions.</p>
+                <p><strong>Tech Stack:</strong> Epic Clarity, Python, Predictive Modeling</p>
+            </div>
             <div class="project" data-category="internship ai-ml">
                 <h3>Enterprise Automation Workflow System</h3>
                 <p>Designed and implemented a serverless automation pipeline using AWS Lambda, RDS, and SES during my time at <strong>FreeAxez</strong>. Built event-driven architecture for real-time data processing, automated notification systems, and integrated third-party APIs. Gained hands-on experience with cloud infrastructure and scalable system design.</p>
